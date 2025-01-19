@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 64px;
+    margin: 0px;
+    background-color: #2d5d52;
+    
+}
+.header-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin: 0px;
+    padding: 0px;
+}
+li, a {
+    list-style-type: none;
+    text-decoration: none;
+    color: beige;
+}
+.header-logo {
+    align-self: center;
+    color: beige;
+    font-size: 32px;
+    font-family: "Roboto", serif;
+    font-weight: 800;
+}
+body {
+    margin: 0px;
+}
