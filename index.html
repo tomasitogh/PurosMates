@@ -4,21 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>Landing Page</title>
+    <title>Puros Mates</title>
 </head>
 <body>
-    <div class="header">
-        <div class="header-logo">PUROS MATES</div>
-        <ul class="header-list">
-            <li class="header-link"><a href="">Catálogo</a></li>
-            <li class="header-link"><a href="">Fabricá tu mate</a></li>
-            <li class="header-link"><a href="">Sobre Nosotros</a></li>
-            <li class="header-link"><a href="">Contacto</a></li>
-        </ul>
-    </div>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="header-logo">PUROS MATES</div>
+            <nav>
+                <ul class="header-list">
+                    <li><a href="/catalogo.html">Catálogo</a></li>
+                    <li><a href="/">Sobre Nosotros</a></li>
+                    <li><a href="/contacto.html">Contacto</a></li>
+                    <li><a href="/carrito.html">Carrito</a></li>
+                </ul>
+            </nav>
+            <nav class="main-nav-mobile">
+                <a href="/carrito.html" title="Cart" class="main-header-mobile-carrito">Carrito</a>
+                <button id="js-mobile-nav-btn" class="main-header-burguer">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </button>
+            </nav>
+        </nav>
+    </header>
     <div class="main-content-intro">
         <div class="left-intro">
             <div class="intro-title">Fabricá tu mate</div>
