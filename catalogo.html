@@ -1,25 +1,230 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Catalogo Puros Mates</title>
+    <title>Catálogo - Puros Mates</title>
 </head>
 <body>
-    <header class="main-header"></header>
     <header class="main-header">
-        <div class="header-logo">PUROS MATES</div>
-        <nav>
-            <ul class="header-list">
-                <li class="header-link"><a href="/catalogo.html">Catálogo</a></li>
-                <li class="header-link"><a href="/">Sobre Nosotros</a></li>
-                <li class="header-link"><a href="/contacto.html">Contacto</a></li>
-                <li class="header-link"><a href="/carrito.html">Carrito</a></li>
-            </ul>
+        <nav class="navbar">
+            <div class="header-logo">
+                <a href="/">PUROS MATES</a>
+            </div>
+            <nav>
+                <ul class="header-list">
+                    <li><a href="/catalogo.html">Catálogo</a></li>
+                    <li><a href="/">SobreNosotros</a></li>
+                    <li><a href="/contacto.html">Contacto</a></li>
+                    <li><a href="/carrito.html">Carrito</a></li>
+                </ul>
+            </nav>
+            <nav class="main-nav-mobile">
+                <a href="/carrito.html" title="Cart" class="main-header-mobile-carrito">Carrito</a>
+                <button id="js-mobile-nav-btn" class="main-header-burguer">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </button>
+            </nav>
         </nav>
-        <a href="/carrito.html" title="Cart" class="main-header-mobile-carrito">Carrito</a>
-        <button id="js-mobile-nav-btn" class="main-header-burguer">☰</button>
     </header>
+
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="/catalogo.html">Catálogo</a></li>
+            <li><a href="/">Sobre Nosotros</a></li>
+            <li><a href="/contacto.html">Contacto</a></li>
+            <li><a href="/carrito.html">Carrito</a></li>
+        </ul>
+    </div>
+
+    <div class="catalogo-container">
+        <h1 class="catalogo-title">Nuestros Productos</h1>
+        
+        <div class="filtros-container">
+            <div class="filtro-item" data-filtro="mate" onclick="toggleFiltro(this)">
+                <h3>Mates</h3>
+            </div>
+            <div class="filtro-item" data-filtro="bombilla" onclick="toggleFiltro(this)">
+                <h3>Bombillas</h3>
+            </div>
+            <div class="filtro-item" data-filtro="accesorio" onclick="toggleFiltro(this)">
+                <h3>Accesorios</h3>
+            </div>
+        </div>
+
+        <div class="productos-grid" id="productos-grid">
+            <!-- Los productos se cargarán dinámicamente con JavaScript -->
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-text">Copyright © Puros Mates 2024</div>
+    </div>
+
+    <a href="/carrito.html" class="carrito-flotante" id="carrito-flotante">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+        </svg>
+    </a>
+
+    <script>
+        const productos = [
+            {
+                id: 1,
+                nombre: "Imperial Cincelado",
+                precio: 15000,
+                imagen: "./img/Imperial-cincelado.jpg",
+                descripcion: "Imperial de calabaza con exterior de cuero reforzado con virola de alpaca cincelada",
+                tipos: ["mate"],
+                aptoParaGrabado: false,
+                stock: 3
+            },
+            {
+                id: 2,
+                nombre: "Imperial Liso",
+                precio: 14000,
+                imagen: "./img/imperial-liso.jpg",
+                descripcion: "Imperial de calabaza con exterior de cuero reforzado con virola de alpaca",
+                tipos: ["mate"],
+                aptoParaGrabado: true,
+                stock: 0
+            },
+            {
+                id: 3,
+                nombre: "Criollo Premium Bordo",
+                precio: 12000,
+                imagen: "./img/Criollo-pm-bordo.jpg",
+                descripcion: "Criollo con base de cuero crudo cocido, virola de alpaca cincelada",
+                tipos: ["mate"],
+                aptoParaGrabado: false,
+                stock: 2
+            },
+            {
+                id: 4,
+                nombre: "Torpedo Cincelado",
+                precio: 16000,
+                imagen: "./img/Torpedo-cincelado.jpg",
+                descripcion: "Torpedo de calabaza con exterior de cuero reforzado con virola de alpaca cincelada",
+                tipos: ["mate"],
+                aptoParaGrabado: false,
+                stock: 1
+            },
+            {
+                id: 5,
+                nombre: "Bombilla Pico de Loro",
+                precio: 5000,
+                imagen: "./img/bombilla-pico-loro.jpg",
+                descripcion: "Bombilla de alpaca con pico de loro",
+                tipos: ["bombilla"],
+                aptoParaGrabado: false,
+                stock: 5
+            },
+            {
+                id: 6,
+                nombre: "Yerbera de Cuero",
+                precio: 3000,
+                imagen: "./img/yerbera-cuero.jpg",
+                descripcion: "Yerbera de cuero con diseño artesanal",
+                tipos: ["accesorio"],
+                aptoParaGrabado: false,
+                stock: 0
+            }
+        ];
+
+        function obtenerFiltrosActivos() {
+            const filtrosActivos = document.querySelectorAll('.filtro-item.activo');
+            return Array.from(filtrosActivos).map(filtro => filtro.dataset.filtro);
+        }
+
+        function toggleFiltro(elemento) {
+            elemento.classList.toggle('activo');
+            filtrarProductos();
+        }
+
+        function filtrarProductos() {
+            const filtrosActivos = obtenerFiltrosActivos();
+            const grid = document.getElementById('productos-grid');
+            grid.innerHTML = '';
+
+            const productosFiltrados = productos.filter(producto => {
+                if (filtrosActivos.length === 0) return true;
+                return filtrosActivos.some(filtro => producto.tipos.includes(filtro));
+            });
+
+            productosFiltrados.forEach(producto => {
+                const productoElement = document.createElement('div');
+                productoElement.className = 'producto-card';
+                productoElement.innerHTML = `
+                    <div class="stock-badge ${producto.stock === 0 ? 'sin-stock' : ''}">
+                        ${producto.stock === 0 ? 'Sin stock' : `${producto.stock} en stock`}
+                    </div>
+                    ${producto.stock === 0 ? '<div class="encargue-badge">Se pide por encargue</div>' : ''}
+                    <img src="${producto.imagen}" alt="${producto.nombre}">
+                    <h3>${producto.nombre}</h3>
+                    <p>${producto.descripcion}</p>
+                    <p class="precio">$${producto.precio}</p>
+                    <button onclick="agregarAlCarrito(${producto.id})" class="btn-agregar" ${producto.stock === 0 ? 'disabled' : ''}>
+                        ${producto.stock === 0 ? 'No disponible' : 'Agregar al carrito'}
+                    </button>
+                `;
+                grid.appendChild(productoElement);
+            });
+        }
+
+        function agregarAlCarrito(id) {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const producto = productos.find(p => p.id === id);
+            
+            if (producto) {
+                carrito.push(producto);
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+                alert('Producto agregado al carrito');
+                mostrarCarritoFlotante();
+            }
+        }
+
+        function mostrarCarritoFlotante() {
+            const carritoFlotante = document.getElementById('carrito-flotante');
+            carritoFlotante.classList.add('visible');
+        }
+
+        // Mostrar el carrito flotante si hay productos al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            filtrarProductos();
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            if (carrito.length > 0) {
+                mostrarCarritoFlotante();
+            }
+        });
+
+        // Control del menú móvil
+        const burgerButton = document.querySelector('.main-header-burguer');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        burgerButton.addEventListener('click', () => {
+            burgerButton.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                burgerButton.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!burgerButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                burgerButton.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>

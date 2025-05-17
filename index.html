@@ -1,78 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Puros Mates</title>
+    <title>Puros Mates - Calidad y Precio</title>
 </head>
 <body>
     <header class="main-header">
         <nav class="navbar">
-            <div class="header-logo">PUROS MATES</div>
-            <nav>
-                <ul class="header-list">
-                    <li><a href="/catalogo.html">Catálogo</a></li>
-                    <li><a href="/">Sobre Nosotros</a></li>
-                    <li><a href="/contacto.html">Contacto</a></li>
-                    <li><a href="/carrito.html">Carrito</a></li>
-                </ul>
-            </nav>
-            <nav class="main-nav-mobile">
-                <a href="/carrito.html" title="Cart" class="main-header-mobile-carrito">Carrito</a>
-                <button id="js-mobile-nav-btn" class="main-header-burguer">
+            <div class="header-logo">
+                <a href="/">PUROS MATES</a>
+            </div>
+            <ul class="header-list">
+                <li><a href="/catalogo.html">Catálogo</a></li>
+                <li><a href="/">Sobre Nosotros</a></li>
+                <li><a href="/contacto.html">Contacto</a></li>
+                <li><a href="/carrito.html">Carrito</a></li>
+            </ul>
+            <div class="main-nav-mobile">
+                <a href="/carrito.html" class="main-header-mobile-carrito">Carrito</a>
+                <button class="main-header-burguer">
                     <div></div>
                     <div></div>
                     <div></div>
                 </button>
-            </nav>
+            </div>
         </nav>
     </header>
-    <div class="main-content-intro">
-        <div class="left-intro">
-            <div class="intro-title">Fabricá tu mate</div>
-            <div class="intro-text">
-                Deja volar tu imaginación para fabricar un mate único, mientras disfrutas de nuestra oferta gastronómica.
-            </div>
-            <button class="button-intro">Inscribirme</button>
-        </div>
-        <img src="./img/IMG_5273.jpg" alt="Imagen representativa de la fabricación de un mate">
-    </div>
-    <div class="content">
-        <div class="content-title">Mates más vendidos</div>
-        <div class="box-container">
-            <div class="box-item">
-                <div class="content-box img1"><img src="./img/Imperial-cincelado.jpg" alt=""></div>
-                <div class="content-box-info">Imperial de calabaza con exterior de cuero reforzado con virola de alpaca cincelada </div>
-            </div>
-            <div class="box-item">
-                <div class="content-box img2"><img src="./img/imperial-liso.jpg" alt=""></div>
-                <div class="content-box-info">Imperial de calabaza con exterior de cuero reforzado con virola de alpaca </div>
-            </div>
-            <div class="box-item">
-                <div class="content-box img3"><img src="./img/Criollo-pm-bordo.jpg" alt=""></div>
-                <div class="content-box-info">Criollo con base de cuero crudo cocido, virola de alpaca cincelada</div>
-            </div>
-            <div class="box-item">
-                <div class="content-box img4"><img src="./img/Torpedo-cincelado.jpg" alt=""></div>
-                <div class="content-box-info">Torpedo de calabaza con exterior de cuero reforzado con virola de alpaca cincelada</div>
-            </div>
-        </div>
-    </div>
-        <div class="content-quote">
-            <div class="quote">El servicio de post venta de Puros mates es el mejor. El chico que me tomó el pedido es súper amable y  está siempre dispuesto a satisfascer al cliente.</div>
-            <div class="quote-author">-Luciana Pirruccio</div>
-        </div>
 
-        <div class="ad-card">
-            <div class="card-container-text">
-                <div class="card-title">Descuento semanal</div>
-                <div class="card-text">20% OFF en productos seleccionados</div>
-            </div>
-            <button class="card-button">Mostrar más</button>
-        </div>
-    <div class="footer">
-        <div class="footer-text">Copyright © Puros Mates 2021</div>
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="/catalogo.html">Catálogo</a></li>
+            <li><a href="/">Sobre Nosotros</a></li>
+            <li><a href="/contacto.html">Contacto</a></li>
+            <li><a href="/carrito.html">Carrito</a></li>
+        </ul>
     </div>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Calidad y Precio</h1>
+            <p>Seleccionamos los mejores mates para ofrecerte calidad a precios accesibles</p>
+            <a href="/catalogo.html" class="btn-primary">Ver Catálogo</a>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Mejor Precio</h3>
+            <p>Ofrecemos los mejores precios del mercado gracias a nuestra selección de productos</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">⭐</div>
+            <h3>Calidad Garantizada</h3>
+            <p>Seleccionamos cuidadosamente cada producto para asegurar su durabilidad</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✨</div>
+            <h3>Personalización</h3>
+            <p>Ofrecemos grabado láser para hacer tu mate aún más especial</p>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="about-content">
+            <h2>Nuestra Historia</h2>
+            <p>En Puros Mates nos especializamos en seleccionar los mejores productos del mercado para ofrecerte calidad a precios accesibles. Nuestro compromiso es brindarte una experiencia de compra satisfactoria con productos duraderos y hermosos.</p>
+            <p>Nos dedicamos a buscar constantemente nuevos productos y tendencias para mantener un catálogo amplio y variado, asegurando que encuentres el mate perfecto para ti.</p>
+        </div>
+        <div class="about-image">
+            <img src="./img/about-image.jpg" alt="Nuestra selección de productos">
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>¿Listo para encontrar tu mate ideal?</h2>
+            <p>Explora nuestro catálogo y descubre nuestra selección de productos de calidad</p>
+            <a href="/catalogo.html" class="btn-secondary">Explorar Catálogo</a>
+        </div>
+    </section>
+
+    <div class="footer">
+        <div class="footer-text">Copyright © Puros Mates 2024</div>
+    </div>
+
+    <script>
+        // Control del menú móvil
+        const burgerButton = document.querySelector('.main-header-burguer');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        burgerButton.addEventListener('click', () => {
+            burgerButton.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                burgerButton.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!burgerButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                burgerButton.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>

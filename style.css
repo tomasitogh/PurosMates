@@ -1,203 +1,269 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap');
+@font-face {
+    font-family: 'SF Pro';
+    src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sfprodisplay-regular-webfont.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro';
+    src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sfprodisplay-bold-webfont.woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body {
-    font-family: "Noto Sans Mono", serif;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+    padding-top: 80px;
 }
 .main-header {
     height: 80px;
     background-color: #2d5d52;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 .navbar {
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px;
+    padding: 0 24px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-ul.header-list {
-    width: 100%;
+.header-logo a {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.header-list {
     display: flex;
-    gap: 20px;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
-
-
+.header-list a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+}
+.header-list a:hover {
+    opacity: 0.8;
+}
 .main-nav-mobile {
     display: none;
 }
-@media (max-width: 685px){
-    .main-nav-mobile{
+.main-header-burguer {
+    display: none;
+}
+@media (max-width: 685px) {
+    .header-list {
+        display: none;
+    }
+    .main-nav-mobile {
         display: flex;
         align-items: center;
         gap: 16px;
+    }
+    .main-header-burguer {
+        display: flex;
+        flex-direction: column;
+        width: 24px;
+        height: 24px;
+        border: 0;
+        background: transparent;
+        gap: 4px;
         cursor: pointer;
-        position:sticky;
+        padding: 0;
     }
-    nav ul.header-list{
-        display: none;
+    .main-header-burguer > div {
+        background-color: white;
+        height: 2px;
+        width: 100%;
+        border-radius: 2px;
+        transition: all 0.3s ease;
     }
-    
+    .main-header-burguer.active > div:first-child {
+        transform: translateY(6px) rotate(45deg);
+    }
+    .main-header-burguer.active > div:nth-child(2) {
+        opacity: 0;
+    }
+    .main-header-burguer.active > div:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+    .main-header-mobile-carrito {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+    }
 }
-.main-header-burguer {
-    display: flex;
-    flex-direction: column;
-    width: 2rem;
-    height: 3rem;
-    border: 0;
-    background: transparent;
-    gap: .65rem;
-}
-.main-header-burguer > div {
-    background-color: black;
-    height: 2px;
+.mobile-menu {
+    position: fixed;
+    top: 80px;
+    left: 0;
     width: 100%;
-    border-radius: 5px;
-    transition: all .5s;
-    transform-origin: left;
+    background: #2d5d52;
+    padding: 20px;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-
-.main-header-burguer:hover div:first-child{
-    transform: rotate(45deg);
+.mobile-menu.active {
+    transform: translateY(0);
 }
-.main-header-burguer:hover div:nth-child(2){
-    opacity: 0;
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
-.main-header-burguer:hover div:nth-child(3){
-    transform: rotate(-45deg);
+.mobile-menu li {
+    margin: 16px 0;
 }
-
-
-
+.mobile-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 8px 0;
+    transition: opacity 0.3s ease;
+}
+.mobile-menu a:hover {
+    opacity: 0.8;
+}
 li, a {
     list-style-type: none;
     text-decoration: none;
     color: beige;
     font:  400 16px Noto Sans Mono;
 }
-.header-logo {
+.header-logo a{
     align-self: center;
     color: beige;
     font-size: 32px;
-    font-family: "Noto Sans Mono", serif;
-    font-optical-sizing: auto;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 700;
     font-style: normal;
-    font-variation-settings:
-    "wdth" 100;
 }
-
-
 .main-content-intro {
-    padding: 48px 48px;
+    padding: 48px;
     background-color: #2d5d52;
     display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
 }
-
 .main-content-intro img {
     max-width: 100%;
     height: 300px; 
     object-fit:fill; 
     object-position: center;
 }
-
 .intro-title {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 700;
     font-size: 36px;
     color: white;
 }
 .intro-text {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 300;
     font-size: 20px;
     color: white;
     margin: 8px 0px;
 }
-
 .left-intro {
     padding: 8px;
 }
-
 .button-intro {
     border-radius: 8px;
     border: none;
-    height: 30px;
-    width: 100px;
-    background: #eee;
+    padding: 8px;
+    min-height: 30px;
+    min-width: 100px;
+    background-color: #eee;
+}
+.button-intro:hover{
+    background-color: #53aa7f;
 }
 img {
     max-width: 100%;
     height: auto;
     display: block;
 }
-
 .content {
     display: flex;
     padding: 16px 64px;
     flex-direction: column;
-
 }
-
 .content-title {
     justify-content: center;
     align-self: center;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 600;
     font-size: 36px;
 }
-
 .content-box {
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     overflow: hidden;
-    border-radius: 4px;
-    
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
-
 .box-container {
     display: flex;
     justify-content: space-between;
     margin: 16px 48px 48px 48px;
     flex-wrap: wrap;
 }
-
 .content-box img {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    object-position: 100% 90%;
 }
-
+.content-box:hover {
+    transform: scale(1.05);
+}
 .content-box-info {
     padding: 8px 0px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
     text-align: center;
     width: 150px;
 }
-
 .content-box.img2 img {
     transform: scale(1.7);
     transform-origin: bottom center;
 }
-
 .content-quote {
     padding: 48px 160px;
     background-color: #e5e7eb;
 }
 .quote {
-    font: italic 300 36px Roboto;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 36px;
     color: #1f2937;
     text-align: left;
 }
 .quote-author {
-    font:  600 24px Roboto;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
     color: #1f2937;
     text-align: right;
 }
-
 .ad-card {
     margin: 48px 128px;
     display: flex;
@@ -208,11 +274,15 @@ img {
     border-radius: 8px;
 }
 .card-title {
-    font:  600 20px Roboto;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
     color: #eee;
 }
 .card-text {
-    font:  300 16px Roboto;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
     color: #eee;
 }
 .card-button {
@@ -222,6 +292,9 @@ img {
     padding: 4px 12px;
     font-size: 12px;
 }
+.card-button:hover {
+    background-color: rgb(117, 117, 117);
+}
 .footer {
     background-color: #303741;
     height: 70px;
@@ -229,4 +302,606 @@ img {
     justify-content: center;
     align-items: center;
     color: #eee;
+}
+@media (max-width: 768px) {
+    .main-content-intro {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .left-intro {
+        width: 100%;
+    }
+    
+    .main-content-intro img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .box-container {
+        margin: 16px;
+        justify-content: center;
+    }
+    
+    .content-quote {
+        padding: 24px;
+    }
+    
+    .ad-card {
+        margin: 24px;
+        flex-direction: column;
+        height: auto;
+        padding: 16px;
+        text-align: center;
+        gap: 16px;
+    }
+}
+.box-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+}
+/* Estilos para el catálogo */
+.catalogo-container {
+    padding: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.catalogo-title {
+    text-align: center;
+    margin-bottom: 32px;
+    color: #2d5d52;
+}
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    padding: 16px;
+}
+.producto-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+.producto-card:hover {
+    transform: translateY(-5px);
+}
+.producto-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.producto-card h3 {
+    padding: 16px 16px 8px;
+    color: #2d5d52;
+    font-size: 1.2em;
+    min-height: 3em;
+    display: flex;
+    align-items: center;
+}
+.producto-card p {
+    padding: 0 16px;
+    color: #666;
+    flex-grow: 1;
+    margin-bottom: 16px;
+}
+.producto-card .precio {
+    font-weight: bold;
+    color: #2d5d52;
+    font-size: 1.2em;
+    padding: 8px 16px;
+    margin-bottom: 16px;
+}
+.btn-agregar {
+    width: 100%;
+    padding: 12px;
+    background: #2d5d52;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: auto;
+}
+.btn-agregar:hover {
+    background: #1e3f38;
+}
+.btn-agregar:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+/* Estilos para el carrito */
+.carrito-container {
+    padding: 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.carrito-title {
+    text-align: center;
+    margin-bottom: 32px;
+    color: #2d5d52;
+}
+.carrito-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.carrito-item {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.carrito-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+.item-details {
+    flex: 1;
+    padding: 0 16px;
+}
+.item-details h3 {
+    color: #2d5d52;
+    margin-bottom: 8px;
+}
+.item-details p {
+    color: #666;
+}
+.btn-eliminar {
+    padding: 8px 16px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.btn-eliminar:hover {
+    background: #c82333;
+}
+.carrito-total {
+    margin-top: 32px;
+    text-align: right;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+.btn-whatsapp {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 32px auto;
+    padding: 16px;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.btn-whatsapp:hover {
+    background: #128C7E;
+}
+@media (max-width: 768px) {
+    .carrito-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    .carrito-item img {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 16px;
+    }
+    .item-details {
+        padding: 16px 0;
+    }
+    .btn-eliminar {
+        margin-top: 16px;
+    }
+}
+/* Estilos para la página de contacto */
+.contacto-container {
+    padding: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.contacto-title {
+    text-align: center;
+    margin-bottom: 48px;
+    color: #2d5d52;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+}
+.contacto-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    padding: 24px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.contacto-info {
+    padding: 24px;
+}
+.contacto-info h2 {
+    color: #2d5d52;
+    margin-bottom: 24px;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+}
+.contacto-info p {
+    margin-bottom: 16px;
+    font-size: 18px;
+    color: #666;
+}
+.contacto-form {
+    padding: 24px;
+}
+.contacto-form h2 {
+    color: #2d5d52;
+    margin-bottom: 24px;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2d5d52;
+    font-weight: 500;
+}
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2d5d52;
+    box-shadow: 0 0 0 2px rgba(45, 93, 82, 0.1);
+}
+.btn-enviar {
+    background: #2d5d52;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+.btn-enviar:hover {
+    background: #1e3f38;
+}
+@media (max-width: 768px) {
+    .contacto-content {
+        grid-template-columns: 1fr;
+    }
+    .contacto-container {
+        padding: 24px;
+    }
+    .contacto-info,
+    .contacto-form {
+        padding: 16px;
+    }
+}
+/* Estilos para los filtros */
+.filtros-container {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+    padding: 24px;
+    justify-content: center;
+}
+.filtro-item {
+    flex: 1;
+    max-width: 200px;
+    padding: 20px 32px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.filtro-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.filtro-item.activo {
+    background: #2d5d52;
+    border-color: #1e3f38;
+}
+.filtro-item h3 {
+    color: #666;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 0;
+}
+.filtro-item.activo h3 {
+    color: white;
+}
+@media (max-width: 768px) {
+    .filtros-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .filtro-item {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+/* Estilos para las opciones de grabado */
+#grabado-opciones {
+    margin: 16px 0;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+.grabado-opcion {
+    margin-bottom: 12px;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+.grabado-opcion:hover {
+    background-color: #e9ecef;
+}
+.grabado-opcion label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #2d5d52;
+    cursor: pointer;
+}
+.grabado-opcion input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+/* Estilos para el botón flotante del carrito */
+.carrito-flotante {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #2d5d52;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(20px);
+    visibility: hidden;
+}
+.carrito-flotante.visible {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+.carrito-flotante:hover {
+    transform: scale(1.1);
+    background: #1e3f38;
+}
+.carrito-flotante svg {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+}
+/* Estilos para la página de inicio */
+.hero-section {
+    background: linear-gradient(rgba(45, 93, 82, 0.9), rgba(45, 93, 82, 0.9)), url('./img/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 120px 48px;
+    text-align: center;
+    color: white;
+}
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+.hero-content p {
+    font-size: 24px;
+    margin-bottom: 32px;
+    opacity: 0.9;
+}
+.btn-primary {
+    display: inline-block;
+    padding: 16px 32px;
+    background: white;
+    color: #2d5d52;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.features-section {
+    padding: 80px 48px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    background: #f8f9fa;
+}
+.feature-card {
+    text-align: center;
+    padding: 32px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+.feature-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+.feature-card h3 {
+    color: #2d5d52;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+.feature-card p {
+    color: #666;
+    line-height: 1.6;
+}
+.about-section {
+    padding: 80px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.about-content h2 {
+    color: #2d5d52;
+    font-size: 36px;
+    margin-bottom: 24px;
+}
+.about-content p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+.about-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.cta-section {
+    background: #2d5d52;
+    padding: 80px 48px;
+    text-align: center;
+    color: white;
+}
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.cta-content h2 {
+    font-size: 36px;
+    margin-bottom: 16px;
+}
+.cta-content p {
+    font-size: 20px;
+    margin-bottom: 32px;
+    opacity: 0.9;
+}
+.btn-secondary {
+    display: inline-block;
+    padding: 16px 32px;
+    background: transparent;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-secondary:hover {
+    background: white;
+    color: #2d5d52;
+}
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 80px 24px;
+    }
+    .hero-content h1 {
+        font-size: 36px;
+    }
+    .hero-content p {
+        font-size: 20px;
+    }
+    .features-section {
+        padding: 48px 24px;
+    }
+    .about-section {
+        padding: 48px 24px;
+        grid-template-columns: 1fr;
+    }
+    .about-image img {
+        height: 300px;
+    }
+    .cta-section {
+        padding: 48px 24px;
+    }
+    .cta-content h2 {
+        font-size: 28px;
+    }
+    .cta-content p {
+        font-size: 18px;
+    }
+}
+.stock-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #2d5d52;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    z-index: 1;
+}
+.stock-badge.sin-stock {
+    background: #dc3545;
+}
+.encargue-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ffc107;
+    color: #000;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    z-index: 1;
 }

@@ -1,25 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Contacto</title>
+    <title>Contacto - Puros Mates</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("NCt9KJFHPu7jx8hpq");
+        })();
+    </script>
 </head>
 <body>
     <header class="main-header">
-        <div class="header-logo">PUROS MATES</div>
-        <nav>
-            <ul class="header-list">
-                <li class="header-link"><a href="/catalogo.html">Catálogo</a></li>
-                <li class="header-link"><a href="/">Sobre Nosotros</a></li>
-                <li class="header-link"><a href="/contacto.html">Contacto</a></li>
-                <li class="header-link"><a href="/carrito.html">Carrito</a></li>
-            </ul>
+        <nav class="navbar">
+            <div class="header-logo">
+                <a href="/">PUROS MATES</a>
+            </div>
+            <nav>
+                <ul class="header-list">
+                    <li><a href="/catalogo.html">Catálogo</a></li>
+                    <li><a href="/">SobreNosotros</a></li>
+                    <li><a href="/contacto.html">Contacto</a></li>
+                    <li><a href="/carrito.html">Carrito</a></li>
+                </ul>
+            </nav>
+            <nav class="main-nav-mobile">
+                <a href="/carrito.html" title="Cart" class="main-header-mobile-carrito">Carrito</a>
+                <button id="js-mobile-nav-btn" class="main-header-burguer">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </button>
+            </nav>
         </nav>
-        <a href="/carrito.html" title="Cart" class="main-header-mobile-carrito">Carrito</a>
-        <button id="js-mobile-nav-btn" class="main-header-burguer">☰</button>
     </header>
-    
+
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="/catalogo.html">Catálogo</a></li>
+            <li><a href="/">Sobre Nosotros</a></li>
+            <li><a href="/contacto.html">Contacto</a></li>
+            <li><a href="/carrito.html">Carrito</a></li>
+        </ul>
+    </div>
+
+    <div class="contacto-container">
+        <h1 class="contacto-title">Contacto</h1>
+        <div class="contacto-content">
+            <div class="contacto-info">
+                <h2>Información de Contacto</h2>
+                <p>📞 Teléfono: +54 9 11 2512-9852</p>
+                <p>✉️ Email (personal): tomasgonzalezhu.phreys12@gmail.com</p>
+            </div>
+            <div class="contacto-form">
+                <h2>Envíanos un mensaje</h2>
+                <form id="contacto-form" onsubmit="return enviarEmail(event)">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-text">Copyright © Puros Mates 2024</div>
+    </div>
+
+    <script>
+        function enviarEmail(e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            const templateParams = {
+                to_email: 'tomasgonzalezhu.phreys12@gmail.com',
+                from_name: nombre,
+                from_email: email,
+                message: mensaje
+            };
+
+            emailjs.send('service_uzlujse', 'template_9ck2bem', templateParams)
+                .then(function(response) {
+                    alert('¡Mensaje enviado con éxito!');
+                    document.getElementById('contacto-form').reset();
+                }, function(error) {
+                    alert('Error al enviar el mensaje. Por favor, intente nuevamente.');
+                    console.error('Error:', error);
+                });
+
+            return false;
+        }
+
+        // Control del menú móvil
+        const burgerButton = document.querySelector('.main-header-burguer');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        burgerButton.addEventListener('click', () => {
+            burgerButton.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                burgerButton.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!burgerButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                burgerButton.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>

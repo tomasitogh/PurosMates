@@ -1,24 +1,207 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Carrito</title>
+    <title>Carrito - Puros Mates</title>
 </head>
 <body>
     <header class="main-header">
-        <div class="header-logo">PUROS MATES</div>
-        <nav>
+        <nav class="navbar">
+            <div class="header-logo">
+                <a href="/">PUROS MATES</a>
+            </div>
             <ul class="header-list">
-                <li class="header-link"><a href="/catalogo.html">Catálogo</a></li>
-                <li class="header-link"><a href="/">Sobre Nosotros</a></li>
-                <li class="header-link"><a href="/contacto.html">Contacto</a></li>
-                <li class="header-link"><a href="/carrito.html">Carrito</a></li>
+                <li><a href="/catalogo.html">Catálogo</a></li>
+                <li><a href="/">Sobre Nosotros</a></li>
+                <li><a href="/contacto.html">Contacto</a></li>
+                <li><a href="/carrito.html">Carrito</a></li>
             </ul>
+            <div class="main-nav-mobile">
+                <a href="/carrito.html" class="main-header-mobile-carrito">Carrito</a>
+                <button class="main-header-burguer">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </button>
+            </div>
         </nav>
-        <a href="/carrito.html" title="Cart" class="main-header-mobile-carrito">Carrito</a>
-        <button id="js-mobile-nav-btn" class="main-header-burguer">☰</button>
     </header>
+
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="/catalogo.html">Catálogo</a></li>
+            <li><a href="/">Sobre Nosotros</a></li>
+            <li><a href="/contacto.html">Contacto</a></li>
+            <li><a href="/carrito.html">Carrito</a></li>
+        </ul>
+    </div>
+
+    <div class="carrito-container">
+        <h1 class="carrito-title">Tu Carrito</h1>
+        
+        <div class="carrito-items" id="carrito-items">
+            <!-- Los items se cargarán dinámicamente -->
+        </div>
+
+        <div class="carrito-total">
+            <div id="grabado-mensaje"></div>
+            <div id="grabado-opciones" style="display: none;">
+                <!-- Las opciones de grabado se cargarán dinámicamente -->
+            </div>
+            <h3>Total (estimado): $<span id="total-precio">0</span></h3>
+        </div>
+
+        <button class="btn-whatsapp" onclick="enviarPedidoWhatsApp()">
+            Realizar Pedido por WhatsApp
+        </button>
+    </div>
+
+    <div class="footer">
+        <div class="footer-text">Copyright © Puros Mates 2024</div>
+    </div>
+
+    <script>
+        function cargarCarrito() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const contenedor = document.getElementById('carrito-items');
+            const grabadoOpciones = document.getElementById('grabado-opciones');
+            const grabadoMensaje = document.getElementById('grabado-mensaje');
+            
+            contenedor.innerHTML = '';
+            grabadoOpciones.innerHTML = '';
+            
+            if (carrito.length === 0) {
+                contenedor.innerHTML = '<p>Tu carrito está vacío</p>';
+                grabadoOpciones.style.display = 'none';
+                grabadoMensaje.innerHTML = '';
+                return;
+            }
+
+            let hayProductosAptos = false;
+            let total = 0;
+
+            carrito.forEach((item, index) => {
+                if (item.aptoParaGrabado === true) {
+                    hayProductosAptos = true;
+                }
+                
+                total += item.precio;
+                
+                const itemElement = document.createElement('div');
+                itemElement.className = 'carrito-item';
+                itemElement.innerHTML = `
+                    <img src="${item.imagen}" alt="${item.nombre}">
+                    <div class="item-details">
+                        <h3>${item.nombre}</h3>
+                        <p>$${item.precio}</p>
+                    </div>
+                    <button class="btn-eliminar" onclick="eliminarDelCarrito(${index})">Eliminar</button>
+                `;
+                contenedor.appendChild(itemElement);
+            });
+
+            if (hayProductosAptos) {
+                grabadoOpciones.style.display = 'block';
+                grabadoMensaje.innerHTML = '';
+                
+                // Crear opciones de grabado solo para productos aptos
+                carrito.forEach((item, index) => {
+                    if (item.aptoParaGrabado === true) {
+                        const grabadoOpcion = document.createElement('div');
+                        grabadoOpcion.className = 'grabado-opcion';
+                        grabadoOpcion.innerHTML = `
+                            <label>
+                                <input type="checkbox" id="grabado-${index}" onchange="actualizarTotal()">
+                                Agregar grabado láser en ${item.nombre} (+$10.000)
+                            </label>
+                        `;
+                        grabadoOpciones.appendChild(grabadoOpcion);
+                    }
+                });
+            } else {
+                grabadoOpciones.style.display = 'none';
+                grabadoMensaje.innerHTML = '<p class="mensaje-no-grabado">Los productos seleccionados no son aptos para grabado láser</p>';
+            }
+
+            actualizarTotal();
+        }
+
+        function actualizarTotal() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const totalElement = document.getElementById('total-precio');
+            
+            let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+            
+            // Sumar el costo de cada grabado seleccionado solo para productos aptos
+            carrito.forEach((item, index) => {
+                if (item.aptoParaGrabado === true) {
+                    const checkbox = document.getElementById(`grabado-${index}`);
+                    if (checkbox && checkbox.checked) {
+                        total += 10000;
+                    }
+                }
+            });
+            
+            totalElement.textContent = total;
+        }
+
+        function eliminarDelCarrito(index) {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito.splice(index, 1);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            cargarCarrito();
+        }
+
+        function enviarPedidoWhatsApp() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            
+            let mensaje = "¡Hola! Quiero realizar el siguiente pedido:\n\n";
+            
+            carrito.forEach((item, index) => {
+                mensaje += `- ${item.nombre}: $${item.precio}\n`;
+                if (item.aptoParaGrabado === true) {
+                    const checkbox = document.getElementById(`grabado-${index}`);
+                    if (checkbox && checkbox.checked) {
+                        mensaje += `  * Con grabado láser (+$10.000)\n`;
+                    }
+                }
+            });
+            
+            mensaje += `\nTotal (estimado): $${document.getElementById('total-precio').textContent}`;
+            
+            const whatsappUrl = `https://wa.me/+5491234567890?text=${encodeURIComponent(mensaje)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        document.addEventListener('DOMContentLoaded', cargarCarrito);
+
+        // Control del menú móvil
+        const burgerButton = document.querySelector('.main-header-burguer');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        burgerButton.addEventListener('click', () => {
+            burgerButton.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                burgerButton.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!burgerButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                burgerButton.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
