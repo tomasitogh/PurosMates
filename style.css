@@ -1,4 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap');
+/*
+Color crema de Cósmico: hsla(var(--white-hsl), 1) COLOR CREMA
+Color secundario: rgba(45, 93, 82, 0.9) VERDE UN POCO MAS CLARO
+Color primario: #2d5d52 VERDE OSCURO
+*/
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 @font-face {
     font-family: 'SF Pro';
     src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sfprodisplay-regular-webfont.woff');
@@ -20,10 +27,10 @@
 }
 body {
     font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
-    padding-top: 80px;
+    padding-top: 90px;
 }
 .main-header {
-    height: 80px;
+    height: 90px;
     background-color: #2d5d52;
     position: fixed;
     width: 100%;
@@ -38,6 +45,11 @@ body {
     padding: 0 24px;
     max-width: 1200px;
     margin: 0 auto;
+}
+.nav-links-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 .header-logo a {
     color: white;
@@ -111,7 +123,7 @@ body {
 }
 .mobile-menu {
     position: fixed;
-    top: 80px;
+    top: 90px;
     left: 0;
     width: 100%;
     background: #2d5d52;
@@ -147,7 +159,7 @@ li, a {
     list-style-type: none;
     text-decoration: none;
     color: beige;
-    font:  400 16px Noto Sans Mono;
+    font: 400 16px "Inter", sans-serif;
 }
 .header-logo a{
     align-self: center;
@@ -725,23 +737,30 @@ img {
 }
 /* Estilos para la página de inicio */
 .hero-section {
-    background: linear-gradient(rgba(45, 93, 82, 0.9), rgba(45, 93, 82, 0.9)), url('./img/hero-bg.jpg');
+    background-color: #486C64;
+    background-image: linear-gradient(rgba(72, 108, 100, 0.75), rgba(72, 108, 100, 0.75)), url('./img/fondo-stock.jpg');
     background-size: cover;
     background-position: center;
-    padding: 120px 48px;
+    background-repeat: no-repeat;
+    padding: 100px 0;
     text-align: center;
     color: white;
 }
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 56px;
+    text-align: left;
 }
 .hero-content h1 {
+    font-family: 'SF Pro', sans-serif;
+    font-weight: bold;
     font-size: 48px;
-    font-weight: 700;
     margin-bottom: 24px;
 }
 .hero-content p {
+    font-family: 'SF Pro', sans-serif;
+    font-weight: normal;
     font-size: 24px;
     margin-bottom: 32px;
     opacity: 0.9;
@@ -904,4 +923,19 @@ img {
     border-radius: 4px;
     font-size: 14px;
     z-index: 1;
+}
+
+.btn-comprar {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #8a9fa3;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-comprar:hover {
+    background-color: #71878a;
 }
