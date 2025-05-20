@@ -27,7 +27,6 @@ Color primario: #2d5d52 VERDE OSCURO
 }
 body {
     font-family: "SF Pro", -apple-system, BlinkMacSystemFont, sans-serif;
-    padding-top: 90px;
 }
 .main-header {
     height: 90px;
@@ -737,14 +736,22 @@ img {
 }
 /* Estilos para la página de inicio */
 .hero-section {
+    margin-top: -90px;
+    padding-top: 247px;
+    padding-bottom: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #486C64;
     background-image: linear-gradient(rgba(72, 108, 100, 0.75), rgba(72, 108, 100, 0.75)), url('./img/fondo-stock.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: 50% 35%;
     background-repeat: no-repeat;
-    padding: 100px 0;
     text-align: center;
     color: white;
+    position: relative;
+    z-index: 1;
 }
 .hero-content {
     max-width: 800px;
@@ -781,17 +788,18 @@ img {
 }
 .features-section {
     padding: 80px 48px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 32px;
     background: #f8f9fa;
 }
+
 .feature-card {
     text-align: center;
     padding: 32px;
     background: white;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.178);
     transition: transform 0.3s ease;
 }
 .feature-card:hover {
@@ -833,7 +841,20 @@ img {
     width: 100%;
     height: 400px;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: 3px;
+}
+.about-image-double {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+}
+.about-img-vertical {
+    width: 180px;
+    object-fit: fill;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.32);
+    background: #eee;
 }
 .cta-section {
     background: #2d5d52;
@@ -938,4 +959,10 @@ img {
 
 .btn-comprar:hover {
     background-color: #71878a;
+}
+
+.features-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 32px;
 }
