@@ -11,37 +11,37 @@
     <header class="main-header">
         <nav class="navbar">
             <div class="header-logo">
-                <a href="/">PUROS MATES</a>
+                <a href="index.html">PUROS MATES</a>
             </div>
             <div class="nav-links-group">
                 <ul class="header-list">
                     <li><a href="catalogo.html">Productos</a></li>
                     <li><a href="carrito.html">Carrito</a></li>
                 </ul>
-                <a href="/catalogo.html" class="btn-comprar">Comprar Ahora</a>
+                <a href="catalogo.html" class="btn-comprar">Comprar Ahora</a>
+                <div class="main-nav-mobile">
+                    <button class="main-header-burguer">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </button>
+                </div>
             </div>
-            <div class="main-nav-mobile">
-                <a href="/carrito.html" class="main-header-mobile-carrito">Carrito</a>
-                <button class="main-header-burguer">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </button>
-            </div>
+            
         </nav>
     </header>
 
     <div class="mobile-menu">
         <ul>
-            <li><a href="/catalogo.html">Catálogo</a></li>
-            <li><a href="/">Sobre Nosotros</a></li>
-            <li><a href="/contacto.html">Contacto</a></li>
-            <li><a href="/carrito.html">Carrito</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="index.html">Sobre Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="carrito.html">Carrito</a></li>
         </ul>
     </div>
 
     <div class="catalogo-container">
-        <h1 class="catalogo-title">Nuestros Productos</h1>
+        <h1 class="catalogo-title">Filtros</h1>
         
         <div class="filtros-container">
             <div class="filtro-item" data-filtro="mate" onclick="toggleFiltro(this)">
@@ -64,23 +64,23 @@
         <div class="footer-container">
             <div class="footer-column">
                 <div class="footer-logo">
-                    <a href="/">PUROS MATES</a>
+                    <a href="index.html">PUROS MATES</a>
                     <img src="./img/favicon.png" alt="Puros Mates Logo" class="footer-favicon">
                 </div>
             </div>
             <div class="footer-column">
                 <h3>Productos</h3>
                 <ul>
-                    <li><a href="/catalogo.html#mates">Mates</a></li>
-                    <li><a href="/catalogo.html#bombillas">Bombillas</a></li>
-                    <li><a href="/catalogo.html#accesorios">Accesorios</a></li>
+                    <li><a href="catalogo.html#mate">Mates</a></li>
+                    <li><a href="catalogo.html#bombilla">Bombillas</a></li>
+                    <li><a href="catalogo.html#accesorio">Accesorios</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>Puros Mates</h3>
                 <ul>
-                    <li><a href="/contacto.html">Contacto</a></li>
-                    <li><a href="/sobre-nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="index.html">Sobre Nosotros</a></li>
                 </ul>
             </div>
         </div>
@@ -89,11 +89,58 @@
         </div>
     </footer>
 
-    <a href="/carrito.html" class="carrito-flotante" id="carrito-flotante">
+    <a href="carrito.html" class="carrito-flotante" id="carrito-flotante">
+        <div class="carrito-contador" id="carrito-contador">0</div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
         </svg>
     </a>
+
+    <style>
+        .carrito-flotante {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .carrito-flotante svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .carrito-flotante:hover {
+            transform: scale(1.1);
+        }
+
+        .carrito-contador {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff0000;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
 
     <script>
         const productos = [
@@ -199,6 +246,28 @@
             });
         }
 
+        function activarFiltroPorHash() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                // Desactivar todos los filtros primero
+                document.querySelectorAll('.filtro-item').forEach(filtro => {
+                    filtro.classList.remove('activo');
+                });
+                
+                // Activar el filtro correspondiente al hash
+                const filtroElement = document.querySelector(`.filtro-item[data-filtro="${hash}"]`);
+                if (filtroElement) {
+                    filtroElement.classList.add('activo');
+                }
+            }
+        }
+
+        function actualizarContadorCarrito() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const contador = document.getElementById('carrito-contador');
+            contador.textContent = carrito.length;
+        }
+
         function agregarAlCarrito(id) {
             let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
             const producto = productos.find(p => p.id === id);
@@ -208,6 +277,7 @@
                 localStorage.setItem('carrito', JSON.stringify(carrito));
                 alert('Producto agregado al carrito');
                 mostrarCarritoFlotante();
+                actualizarContadorCarrito();
             }
         }
 
@@ -218,11 +288,20 @@
 
         // Mostrar el carrito flotante si hay productos al cargar la página
         document.addEventListener('DOMContentLoaded', () => {
+            activarFiltroPorHash();
             filtrarProductos();
+            
             const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
             if (carrito.length > 0) {
                 mostrarCarritoFlotante();
             }
+            actualizarContadorCarrito();
+        });
+
+        // Escuchar cambios en el hash de la URL
+        window.addEventListener('hashchange', () => {
+            activarFiltroPorHash();
+            filtrarProductos();
         });
 
         // Control del menú móvil
