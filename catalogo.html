@@ -13,22 +13,21 @@
             <div class="header-logo">
                 <a href="/">PUROS MATES</a>
             </div>
-            <nav>
+            <div class="nav-links-group">
                 <ul class="header-list">
-                    <li><a href="/catalogo.html">Catálogo</a></li>
-                    <li><a href="/">SobreNosotros</a></li>
-                    <li><a href="/contacto.html">Contacto</a></li>
-                    <li><a href="/carrito.html">Carrito</a></li>
+                    <li><a href="catalogo.html">Productos</a></li>
+                    <li><a href="carrito.html">Carrito</a></li>
                 </ul>
-            </nav>
-            <nav class="main-nav-mobile">
-                <a href="/carrito.html" title="Cart" class="main-header-mobile-carrito">Carrito</a>
-                <button id="js-mobile-nav-btn" class="main-header-burguer">
+                <a href="/catalogo.html" class="btn-comprar">Comprar Ahora</a>
+            </div>
+            <div class="main-nav-mobile">
+                <a href="/carrito.html" class="main-header-mobile-carrito">Carrito</a>
+                <button class="main-header-burguer">
                     <div></div>
                     <div></div>
                     <div></div>
                 </button>
-            </nav>
+            </div>
         </nav>
     </header>
 
@@ -61,9 +60,34 @@
         </div>
     </div>
 
-    <div class="footer">
-        <div class="footer-text">Copyright © Puros Mates 2024</div>
-    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <a href="/">PUROS MATES</a>
+                    <img src="./img/favicon.png" alt="Puros Mates Logo" class="footer-favicon">
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Productos</h3>
+                <ul>
+                    <li><a href="/catalogo.html#mates">Mates</a></li>
+                    <li><a href="/catalogo.html#bombillas">Bombillas</a></li>
+                    <li><a href="/catalogo.html#accesorios">Accesorios</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Puros Mates</h3>
+                <ul>
+                    <li><a href="/contacto.html">Contacto</a></li>
+                    <li><a href="/sobre-nosotros.html">Sobre Nosotros</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-text">Copyright © Puros Mates 2024</div>
+        </div>
+    </footer>
 
     <a href="/carrito.html" class="carrito-flotante" id="carrito-flotante">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -91,7 +115,7 @@
                 descripcion: "Imperial de calabaza con exterior de cuero reforzado con virola de alpaca",
                 tipos: ["mate"],
                 aptoParaGrabado: true,
-                stock: 0
+                stock: 3
             },
             {
                 id: 3,

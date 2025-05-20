@@ -13,12 +13,13 @@
             <div class="header-logo">
                 <a href="/">PUROS MATES</a>
             </div>
-            <ul class="header-list">
-                <li><a href="/catalogo.html">Catálogo</a></li>
-                <li><a href="/">Sobre Nosotros</a></li>
-                <li><a href="/contacto.html">Contacto</a></li>
-                <li><a href="/carrito.html">Carrito</a></li>
-            </ul>
+            <div class="nav-links-group">
+                <ul class="header-list">
+                    <li><a href="catalogo.html">Productos</a></li>
+                    <li><a href="carrito.html">Carrito</a></li>
+                </ul>
+                <a href="/catalogo.html" class="btn-comprar">Comprar Ahora</a>
+            </div>
             <div class="main-nav-mobile">
                 <a href="/carrito.html" class="main-header-mobile-carrito">Carrito</a>
                 <button class="main-header-burguer">
@@ -59,9 +60,34 @@
         </button>
     </div>
 
-    <div class="footer">
-        <div class="footer-text">Copyright © Puros Mates 2024</div>
-    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <a href="/">PUROS MATES</a>
+                    <img src="./img/favicon.png" alt="Puros Mates Logo" class="footer-favicon">
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Productos</h3>
+                <ul>
+                    <li><a href="/catalogo.html#mates">Mates</a></li>
+                    <li><a href="/catalogo.html#bombillas">Bombillas</a></li>
+                    <li><a href="/catalogo.html#accesorios">Accesorios</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Puros Mates</h3>
+                <ul>
+                    <li><a href="/contacto.html">Contacto</a></li>
+                    <li><a href="/sobre-nosotros.html">Sobre Nosotros</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-text">Copyright © Puros Mates 2024</div>
+        </div>
+    </footer>
 
     <script>
         function cargarCarrito() {
@@ -172,7 +198,7 @@
             
             mensaje += `\nTotal (estimado): $${document.getElementById('total-precio').textContent}`;
             
-            const whatsappUrl = `https://wa.me/+5491234567890?text=${encodeURIComponent(mensaje)}`;
+            const whatsappUrl = `https://wa.me/+5491125129852?text=${encodeURIComponent(mensaje)}`;
             window.open(whatsappUrl, '_blank');
         }
 
