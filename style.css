@@ -50,6 +50,17 @@ body {
     align-items: center;
     gap: 20px;
 }
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.header-logo-img {
+    height: 48px;
+    width: 48px;
+    object-fit: contain;
+    margin-top: -8px;
+}
 .header-logo a {
     color: white;
     font-size: 24px;
