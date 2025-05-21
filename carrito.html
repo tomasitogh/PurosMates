@@ -197,8 +197,8 @@
             });
             
             mensaje += `\nTotal (estimado): $${document.getElementById('total-precio').textContent}`;
-            
-            const whatsappUrl = `https://wa.me/+5491125129852?text=${encodeURIComponent(mensaje)}`;
+            const numero = "+5491125129852";
+            const whatsappUrl = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
             window.open(whatsappUrl, '_blank');
         }
 
