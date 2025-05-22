@@ -382,6 +382,7 @@ img {
     color: #2d5d52;
     font-size: 16px;
 }
+
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;
@@ -661,6 +662,9 @@ div.filtros-container-title h3 {
     .btn-eliminar {
         margin-top: 16px;
     }
+    .contacto-title {
+        margin-top: 24px;
+    }
 }
 /* Estilos para la página de contacto */
 .contacto-container {
@@ -894,6 +898,7 @@ div.filtros-container-title h3 {
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.178);
     transition: transform 0.3s ease;
+    min-width: 280px;
 }
 .feature-card:hover {
     transform: translateY(-5px);
@@ -930,22 +935,28 @@ div.filtros-container-title h3 {
     line-height: 1.8;
     margin-bottom: 16px;
 }
+.about-content {
+    
+}
 .about-image img {
     width: 100%;
     height: 400px;
     object-fit: cover;
     border-radius: 3px;
 }
-.about-image-double {
+.about-image{
     display: flex;
+    flex: 1 1 0;
+    flex-wrap: wrap;
     flex-direction: row;
     gap: 24px;
     justify-content: center;
     align-items: center;
 }
 .about-img-vertical {
-    width: 180px;
-    object-fit: fill;
+    max-width: 250px;
+    height: auto;
+    object-fit: cover;
     box-shadow: 0 2px 8px rgba(0,0,0,0.32);
     background: #eee;
 }
@@ -986,6 +997,7 @@ div.filtros-container-title h3 {
 @media (max-width: 768px) {
     .hero-section {
         padding: 80px 24px;
+        margin-top: 24px;
     }
     .hero-content h1 {
         font-size: 36px;
@@ -1058,6 +1070,11 @@ div.filtros-container-title h3 {
     display: flex;
     justify-content: space-around;
     gap: 32px;
+    flex-wrap: wrap;
+
+}
+.feature-card {
+    flex: 1 1 0;
 }
 /* estilos para redes sociales */
 .contacto-redes {
@@ -1141,11 +1158,7 @@ div.filtros-container-title h3 {
         scale: 1;
     }
 }
-.block {
-    animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-}
+
 .feature-card {
     animation: appear linear;
     animation-timeline: view();
@@ -1170,4 +1183,33 @@ div.filtros-container-title h3 {
     animation: appear linear;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
+}
+
+/* Breakpoint para tablets y dispositivos medianos */
+@media (max-width: 1024px) {
+    .about-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .about-image {
+        margin-top: 32px;
+    }
+    .about-img-vertical {
+        width: 140px;
+    }
+}
+
+/* Breakpoint para móviles */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 48px 24px;
+    }
+    .about-image {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .about-img-vertical {
+        width: 100%;
+        max-width: 280px;
+    }
 }
