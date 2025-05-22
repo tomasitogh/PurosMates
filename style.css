@@ -880,7 +880,7 @@ div.filtros-container-title h3 {
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 .features-section {
-    padding: 80px 48px;
+    padding: 64px 48px;
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -1130,3 +1130,44 @@ div.filtros-container-title h3 {
     text-align: center;
 }
 
+/* Agrego animacion a los contenedores en todas las páginas */
+@keyframes appear {
+    from {
+        opacity: 0.3;
+        scale: 0.7;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+.block {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+.feature-card {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+.about-content {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+.about-img-vertical {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+.cta-content {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+.producto-card {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
