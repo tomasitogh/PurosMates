@@ -403,68 +403,19 @@
     </style>
 
     <script>
-        const productos = [
-            {
-                id: 1,
-                nombre: "Imperial Cincelado",
-                precio: 15000,
-                imagen: "./img/Imperial-cincelado.jpg",
-                descripcion: "Imperial de calabaza con exterior de cuero reforzado con virola de alpaca cincelada",
-                tipos: ["mate"],
-                aptoParaGrabado: false,
-                stock: 3
-            },
-            {
-                id: 2,
-                nombre: "Imperial Liso",
-                precio: 14000,
-                imagen: "./img/imperial-liso.jpg",
-                descripcion: "Imperial de calabaza con exterior de cuero reforzado con virola de alpaca",
-                tipos: ["mate"],
-                aptoParaGrabado: true,
-                stock: 3
-            },
-            {
-                id: 3,
-                nombre: "Criollo Premium Bordo",
-                precio: 12000,
-                imagen: "./img/Criollo-pm-bordo.jpg",
-                descripcion: "Criollo con base de cuero crudo cocido, virola de alpaca cincelada",
-                tipos: ["mate"],
-                aptoParaGrabado: false,
-                stock: 2
-            },
-            {
-                id: 4,
-                nombre: "Torpedo Cincelado",
-                precio: 16000,
-                imagen: "./img/Torpedo-cincelado.jpg",
-                descripcion: "Torpedo de calabaza con exterior de cuero reforzado con virola de alpaca cincelada",
-                tipos: ["mate"],
-                aptoParaGrabado: false,
-                stock: 1
-            },
-            {
-                id: 5,
-                nombre: "Bombilla Pico de Loro",
-                precio: 7000,
-                imagen: "./img/bombilla-picoloro-aceroinox.webp",
-                descripcion: "Bombilla de alpaca con pico de loro",
-                tipos: ["bombilla"],
-                aptoParaGrabado: false,
-                stock: 5
-            },
-            {
-                id: 6,
-                nombre: "Yerbera de Cuero",
-                precio: 3000,
-                imagen: "./img/yerbero-gamuza-negro.webp",
-                descripcion: "Yerbera de cuero con diseño artesanal",
-                tipos: ["accesorio"],
-                aptoParaGrabado: false,
-                stock: 0
+        let productos = [];
+
+        // Función para cargar los productos desde el archivo JSON
+        async function cargarProductos() {
+            try {
+                const response = await fetch('./productos.json');
+                const data = await response.json();
+                productos = data.productos;
+                filtrarProductos(); // Filtrar productos después de cargarlos
+            } catch (error) {
+                console.error('Error al cargar los productos:', error);
             }
-        ];
+        }
 
         function obtenerFiltrosActivos() {
             const filtrosActivos = document.querySelectorAll('.filtro-item.activo');
@@ -700,6 +651,7 @@
 
         // Event Listeners para cerrar el panel/modal
         document.addEventListener('DOMContentLoaded', () => {
+            cargarProductos(); // Cargar productos al iniciar
             document.getElementById('carrito-panel-close').addEventListener('click', cerrarCarrito);
             document.getElementById('carrito-modal-close').addEventListener('click', cerrarModal);
             document.getElementById('carrito-overlay').addEventListener('click', () => {

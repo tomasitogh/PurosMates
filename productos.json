@@ -1,0 +1,264 @@
+{
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "Criollo con base",
+            "precio": 14000,
+            "imagen": "",
+            "descripcion": "Calabaza pulida con base de cuero crudo cocido",
+            "tipos": ["mate"],
+            "aptoParaGrabado": false,
+            "stock": 3
+        },
+        {
+            "id": 2,
+            "nombre": "Criollo Premium virola de alpaca cincelada",
+            "precio": 28000,
+            "imagen": "",
+            "descripcion": "Criollo con base de cuero crudo cocido, virola de alpaca cincelada",
+            "tipos": ["mate"],
+            "aptoParaGrabado": false,
+            "stock": 2
+        },
+        {
+            "id": 3,
+            "nombre": "Criollo con tripode",
+            "precio": 14000,
+            "imagen": "",
+            "descripcion": "Criollo con calabaza pulida y base de de acero inoxidable con tres patas",
+            "tipos": ["mate"],
+            "aptoParaGrabado": false,
+            "stock": 0
+        },
+        {
+            "id": 4,
+            "nombre": "Camionero de algarrobo virola de acero inox lisa",
+            "precio": 16000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["mate"],
+            "aptoParaGrabado": true,
+            "stock": 0
+        },
+        {
+            "id": 5,
+            "nombre": "Imperial de algarrobo virola de alpaca lisa",
+            "precio": 26000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["mate"],
+            "aptoParaGrabado": true,
+            "stock": 0
+        },
+        {
+            "id": 6,
+            "nombre": "Torpedo virola de acero inox lisa",
+            "precio": 24000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["mate"],
+            "aptoParaGrabado": false,
+            "stock": 1
+        },
+        {
+            "id": 7,
+            "nombre": "Torpedo virola cincelada de alpaca",
+            "precio": 28000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["mate"],
+            "aptoParaGrabado": false,
+            "stock": 0
+        },
+        {
+            "id": 8,
+            "nombre": "Torpedo virola cincelada y base con bolitas de alpaca",
+            "precio": 32000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["mate"],
+            "aptoParaGrabado": false,
+            "stock": 0
+        },
+        {
+            "id": 9,
+            "nombre": "Camionero virola de acero inox lisa con cuero labrado",
+            "precio": 22000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["mate"],
+            "aptoParaGrabado": true,
+            "stock": 0
+        },
+        {
+            "id": 10,
+            "nombre": "Camionero virola de acero inox lisa",
+            "precio": 24000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["mate"],
+            "aptoParaGrabado": true,
+            "stock": 0
+        },
+        {
+            "id": 11,
+            "nombre": "Imperial virola de alpaca lisa",
+            "precio": 32000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["mate"],
+            "aptoParaGrabado": true,
+            "stock": 3
+        },
+        {
+            "id": 12,
+            "nombre": "Imperial virola de alpaca cincelada",
+            "precio": 35000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["mate"],
+            "aptoParaGrabado": false,
+            "stock": 1
+        },
+        {
+            "id": 13,
+            "nombre": "Imperial criollo con cuero labrado",
+            "precio": 50000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["mate"],
+            "aptoParaGrabado": true,
+            "stock": 1
+        },
+        {
+            "id": 14,
+            "nombre": "Bombilla Pico de Loro de acero inox",
+            "precio": 7000,
+            "imagen": "./img/bombilla-picoloro-aceroinox.webp",
+            "descripcion": "Bombilla de alpaca con pico de loro",
+            "tipos": ["bombilla"],
+            "aptoParaGrabado": false,
+            "stock": 5
+        },
+        {
+            "id": 15,
+            "nombre": "Bombilla de acero inox chata",
+            "precio": 5000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["bombilla"],
+            "aptoParaGrabado": false,
+            "stock": 4
+        },
+        {
+            "id": 16,
+            "nombre": "Bombilla pico de loro de alpaca",
+            "precio": 12000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["bombilla"],
+            "aptoParaGrabado": false,
+            "stock": 3
+        },
+        {
+            "id": 17,
+            "nombre": "Bombillón de alpaca",
+            "precio": 22000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["bombilla"],
+            "aptoParaGrabado": false,
+            "stock": 0
+        },
+        {
+            "id": 18,
+            "nombre": "Bombillón de alpaca premium",
+            "precio": 26000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["bombilla"],
+            "aptoParaGrabado": false,
+            "stock": 0
+        },
+        {
+            "id": 19,
+            "nombre": "Yerbera de gamuza",
+            "precio": 7000,
+            "imagen": "./img/yerbero-gamuza-negro.webp",
+            "descripcion": "Yerbera de cuero con diseño artesanal",
+            "tipos": ["accesorio"],
+            "aptoParaGrabado": false,
+            "stock": 6
+        },
+        {
+            "id": 20,
+            "nombre": "Yerbero de gamuza con bolsillo",
+            "precio": 12000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["accesorio"],
+            "aptoParaGrabado": false,
+            "stock": 4
+        },
+        {
+            "id": 21,
+            "nombre": "Canasta de ecocuero",
+            "precio": 9000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["accesorio"],
+            "aptoParaGrabado": false,
+            "stock": 3
+        },
+        {
+            "id": 22,
+            "nombre": "Canasta de ecocuero reforzada",
+            "precio": 15000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["accesorio"],
+            "aptoParaGrabado": false,
+            "stock": 5
+        },
+        {
+            "id": 23,
+            "nombre": "Canasta de cuero 100%",
+            "precio": 35000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["accesorio"],
+            "aptoParaGrabado": false,
+            "stock": 2
+        },
+        {
+            "id": 24,
+            "nombre": "TapaMate de silicona",
+            "precio": 10000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["accesorio"],
+            "aptoParaGrabado": false,
+            "stock": 5
+        },
+        {
+            "id": 25,
+            "nombre": "TapaBombi de silicona",
+            "precio": 6000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["accesorio"],
+            "aptoParaGrabado": false,
+            "stock": 5
+        },
+        {
+            "id": 26,
+            "nombre": "Portamate de cuero 100%",
+            "precio": 14000,
+            "imagen": "",
+            "descripcion": "",
+            "tipos": ["accesorio"],
+            "aptoParaGrabado": false,
+            "stock": 0
+        }
+    ]
+} 
