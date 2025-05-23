@@ -116,6 +116,22 @@
     </a>
 
     <style>
+        .carrito-contador {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff0000;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
         .carrito-flotante {
             position: fixed;
             bottom: 20px;
@@ -132,6 +148,13 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             transition: transform 0.3s ease;
             z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .carrito-flotante.visible {
+            opacity: 1;
+            visibility: visible;
         }
 
         .carrito-flotante svg {
@@ -144,20 +167,238 @@
             transform: scale(1.1);
         }
 
-        .carrito-contador {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background-color: #ff0000;
-            color: white;
-            width: 20px;
-            height: 20px;
+        /* Estilos para el panel lateral del carrito */
+        .carrito-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            z-index: 1001;
+            transition: right 0.3s ease-in-out;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .carrito-panel.active {
+            right: 0;
+        }
+
+        .carrito-panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .carrito-panel-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .carrito-panel-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .carrito-panel-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        .carrito-panel-item-info {
+            flex-grow: 1;
+        }
+
+        .btn-eliminar {
+            background-color: #ff4444;
+            border: none;
             border-radius: 50%;
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            padding: 0;
+            margin-left: 10px;
+        }
+
+        .btn-eliminar:hover {
+            background-color: #ff0000;
+        }
+
+        .btn-eliminar svg {
+            fill: white;
+            width: 20px;
+            height: 20px;
+        }
+
+        .carrito-panel-total {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
             font-weight: bold;
+        }
+
+        .carrito-panel-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .carrito-panel-buttons button {
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-ir-carrito {
+            background-color: #333;
+            color: white;
+        }
+
+        .btn-seguir-comprando {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        /* Overlay para el panel lateral */
+        .carrito-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .carrito-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Estilos para el modal móvil */
+        .carrito-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 90%;
+            max-width: 400px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            z-index: 1002;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .carrito-modal.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .carrito-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .carrito-modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+            position: relative;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #modal-timer-circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 32px;
+            height: 32px;
+            pointer-events: none;
+        }
+        #modal-timer-progress {
+            transition: stroke-dashoffset 0.1s linear;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        .carrito-modal-content {
+            text-align: center;
+        }
+
+        .carrito-modal-content img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            display: block;
+        }
+
+        .carrito-modal-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .carrito-modal-buttons button {
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .carrito-modal-close span {
+            position: relative;
+            z-index: 2;
+            color: #38675a;
+        }
+
+        @media (max-width: 768px) {
+            .carrito-panel {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .carrito-modal {
+                display: none;
+            }
         }
     </style>
 
@@ -253,7 +494,7 @@
                         ${producto.stock === 0 ? 'Sin stock' : `${producto.stock} en stock`}
                     </div>
                     ${producto.stock === 0 ? '<div class="encargue-badge">Se pide por encargue</div>' : ''}
-                    <img src="${producto.imagen}" alt="${producto.nombre}">
+                    <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
                     <h3>${producto.nombre}</h3>
                     <p>${producto.descripcion}</p>
                     <p class="precio">$${producto.precio}</p>
@@ -287,6 +528,152 @@
             contador.textContent = carrito.length;
         }
 
+        function calcularTotalCarrito() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            return carrito.reduce((total, item) => total + item.precio, 0);
+        }
+
+        function actualizarPanelCarrito() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const panelItems = document.getElementById('carrito-panel-items');
+            const totalElement = document.getElementById('carrito-panel-total');
+            
+            panelItems.innerHTML = '';
+            carrito.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'carrito-panel-item';
+                itemElement.innerHTML = `
+                    <img src="${item.imagen}" alt="${item.nombre}" loading="lazy">
+                    <div class="carrito-panel-item-info">
+                        <h3>${item.nombre}</h3>
+                        <p>$${item.precio}</p>
+                    </div>
+                    <button class="btn-eliminar" onclick="eliminarDelCarrito(${index})">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                        </svg>
+                    </button>
+                `;
+                panelItems.appendChild(itemElement);
+            });
+            
+            totalElement.textContent = calcularTotalCarrito();
+        }
+
+        function eliminarDelCarrito(index) {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito.splice(index, 1);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            actualizarContadorCarrito();
+            actualizarPanelCarrito();
+            
+            // Si el carrito está vacío, mostrar el total en 0 antes de cerrar el panel
+            if (carrito.length === 0) {
+                document.getElementById('carrito-panel-total').textContent = '0';
+                cerrarCarrito();
+            }
+        }
+
+        let modalTimeout;
+        let modalTimerInterval;
+        const MODAL_TIMER_DURATION = 5000; // 5 segundos
+        const MODAL_CIRCLE_LENGTH = 87.96; // Circunferencia del círculo SVG
+
+        function iniciarAnimacionCirculoModal() {
+            const progress = document.getElementById('modal-timer-progress');
+            if (!progress) return;
+            progress.style.strokeDashoffset = MODAL_CIRCLE_LENGTH;
+            let start = Date.now();
+            if (modalTimerInterval) clearInterval(modalTimerInterval);
+            modalTimerInterval = setInterval(() => {
+                let elapsed = Date.now() - start;
+                let percent = Math.min(elapsed / MODAL_TIMER_DURATION, 1);
+                progress.style.strokeDashoffset = MODAL_CIRCLE_LENGTH * (1 - percent);
+                if (percent >= 1) {
+                    clearInterval(modalTimerInterval);
+                }
+            }, 50);
+        }
+
+        function reiniciarModalTimer() {
+            if (modalTimeout) clearTimeout(modalTimeout);
+            if (modalTimerInterval) clearInterval(modalTimerInterval);
+            iniciarAnimacionCirculoModal();
+            modalTimeout = setTimeout(() => {
+                cerrarModal();
+            }, MODAL_TIMER_DURATION);
+        }
+
+        function mostrarModalCarrito(producto) {
+            const modal = document.getElementById('carrito-modal');
+            const modalContent = document.getElementById('carrito-modal-content');
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            // Mostrar todos los productos del carrito en el modal
+            modalContent.innerHTML = carrito.map((item, index) => `
+                <div class="carrito-modal-item" style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                    <img src="${item.imagen}" alt="${item.nombre}" style="width: 60px; height: 60px; object-fit: cover; margin-right: 10px;" loading="lazy">
+                    <div style="flex: 1; text-align: left;">
+                        <h3 style="margin: 0 0 5px 0; font-size: 16px;">${item.nombre}</h3>
+                        <p style="margin: 0; font-size: 15px;">$${item.precio}</p>
+                    </div>
+                    <button class="btn-eliminar-modal" onclick="eliminarDelCarritoModal(${index})" style="background-color: #ff4444; border: none; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; margin-left: 8px;">
+                        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="white" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                    </button>
+                </div>
+            `).join('');
+
+            modal.classList.add('active');
+            document.getElementById('carrito-overlay').classList.add('active');
+
+            reiniciarModalTimer();
+        }
+
+        function eliminarDelCarritoModal(index) {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito.splice(index, 1);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            actualizarContadorCarrito();
+            // Si el carrito queda vacío, cerrar el modal
+            if (carrito.length === 0) {
+                cerrarModal();
+            } else {
+                // Volver a mostrar el modal actualizado y reiniciar el timeout
+                mostrarModalCarrito({});
+            }
+        }
+
+        function cerrarModal() {
+            const modal = document.getElementById('carrito-modal');
+            const overlay = document.getElementById('carrito-overlay');
+            modal.classList.remove('active');
+            overlay.classList.remove('active');
+            if (modalTimeout) clearTimeout(modalTimeout);
+            if (modalTimerInterval) clearInterval(modalTimerInterval);
+            // Resetear círculo
+            const progress = document.getElementById('modal-timer-progress');
+            if (progress) progress.style.strokeDashoffset = MODAL_CIRCLE_LENGTH;
+        }
+
+        function mostrarPanelCarrito() {
+            const panel = document.getElementById('carrito-panel');
+            const overlay = document.getElementById('carrito-overlay');
+            panel.classList.add('active');
+            overlay.classList.add('active');
+            actualizarPanelCarrito();
+        }
+
+        function cerrarCarrito() {
+            const panel = document.getElementById('carrito-panel');
+            const overlay = document.getElementById('carrito-overlay');
+            panel.classList.remove('active');
+            overlay.classList.remove('active');
+            
+            // Limpiar el contenido del panel
+            document.getElementById('carrito-panel-items').innerHTML = '';
+            document.getElementById('carrito-panel-total').textContent = '0';
+        }
+
         function agregarAlCarrito(id) {
             let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
             const producto = productos.find(p => p.id === id);
@@ -294,9 +681,15 @@
             if (producto) {
                 carrito.push(producto);
                 localStorage.setItem('carrito', JSON.stringify(carrito));
-                alert('Producto agregado al carrito');
-                mostrarCarritoFlotante();
                 actualizarContadorCarrito();
+                mostrarCarritoFlotante();
+                
+                // Mostrar panel o modal según el tamaño de la pantalla
+                if (window.innerWidth > 768) {
+                    mostrarPanelCarrito();
+                } else {
+                    mostrarModalCarrito(producto);
+                }
             }
         }
 
@@ -305,8 +698,26 @@
             carritoFlotante.classList.add('visible');
         }
 
-        // Mostrar el carrito flotante si hay productos al cargar la página
+        // Event Listeners para cerrar el panel/modal
         document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('carrito-panel-close').addEventListener('click', cerrarCarrito);
+            document.getElementById('carrito-modal-close').addEventListener('click', cerrarModal);
+            document.getElementById('carrito-overlay').addEventListener('click', () => {
+                if (window.innerWidth > 768) {
+                    cerrarCarrito();
+                } else {
+                    cerrarModal();
+                }
+            });
+            // Interacción dentro del modal reinicia el temporizador
+            document.getElementById('carrito-modal').addEventListener('mousedown', (e) => {
+                // Solo reiniciar si el modal está activo y el click no es en el overlay
+                if (window.innerWidth <= 768 && document.getElementById('carrito-modal').classList.contains('active')) {
+                    reiniciarModalTimer();
+                }
+            });
+
+            // Resto del código existente
             activarFiltroPorHash();
             filtrarProductos();
             
@@ -349,5 +760,45 @@
             }
         });
     </script>
+
+    <!-- Panel lateral del carrito -->
+    <div class="carrito-overlay" id="carrito-overlay"></div>
+    <div class="carrito-panel" id="carrito-panel">
+        <div class="carrito-panel-header">
+            <h2>Carrito de Compras</h2>
+            <button class="carrito-panel-close" id="carrito-panel-close">&times;</button>
+        </div>
+        <div id="carrito-panel-items">
+            <!-- Los items se agregarán dinámicamente -->
+        </div>
+        <div class="carrito-panel-total">
+            Total: $<span id="carrito-panel-total">0</span>
+        </div>
+        <div class="carrito-panel-buttons">
+            <button class="btn-ir-carrito" onclick="window.location.href='./carrito.html'">Ir al Carrito</button>
+            <button class="btn-seguir-comprando" onclick="cerrarCarrito()">Seguir Comprando</button>
+        </div>
+    </div>
+
+    <!-- Modal móvil del carrito -->
+    <div class="carrito-modal" id="carrito-modal">
+        <div class="carrito-modal-header">
+            <h2>Producto Agregado</h2>
+            <button class="carrito-modal-close" id="carrito-modal-close" style="position: relative;">
+                <svg id="modal-timer-circle" width="32" height="32" style="position: absolute; top: 0; left: 0; pointer-events: none;" viewBox="0 0 32 32">
+                    <circle cx="16" cy="16" r="14" stroke="#38675a" stroke-width="3" fill="none" opacity="0.2"/>
+                    <circle id="modal-timer-progress" cx="16" cy="16" r="14" stroke="#38675a" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="87.96" stroke-dashoffset="87.96"/>
+                </svg>
+                <span style="position: relative; z-index: 2; color: #38675a;">&times;</span>
+            </button>
+        </div>
+        <div class="carrito-modal-content" id="carrito-modal-content">
+            <!-- El contenido se agregará dinámicamente -->
+        </div>
+        <div class="carrito-modal-buttons">
+            <button class="btn-ir-carrito" onclick="window.location.href='./carrito.html'">Ir al Carrito</button>
+            <button class="btn-seguir-comprando" onclick="cerrarModal()">Seguir Comprando</button>
+        </div>
+    </div>
 </body>
 </html>

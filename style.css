@@ -519,6 +519,7 @@ div.filtros-container-title h3 {
     display: flex;
     flex-direction: column;
     height: 100%;
+    max-width: 330px;
     position: relative;
 }
 .producto-card:hover {
