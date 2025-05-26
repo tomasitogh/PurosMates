@@ -117,10 +117,13 @@
             grabadoOpciones.innerHTML = '';
             
             if (carrito.length === 0) {
-                contenedor.innerHTML = '<p>Tu carrito está vacío</p>';
+                contenedor.innerHTML = `
+                    <p>Tu carrito está vacío</p>
+                    <a href="./catalogo.html" class="btn-comprar">Comprar Ahora</a>
+                `;
                 grabadoOpciones.style.display = 'none';
                 grabadoMensaje.innerHTML = '';
-                document.getElementById('carrito-panel-total').textContent = '0';
+                document.getElementById('total-precio').textContent = '0';
                 return;
             }
 
