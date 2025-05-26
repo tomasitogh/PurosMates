@@ -847,7 +847,7 @@ div.filtros-container-title h3 {
     justify-content: center;
     align-items: center;
     background-color: #486C64;
-    background-image: linear-gradient(rgba(72, 108, 100, 0.75), rgba(72, 108, 100, 0.75)), url('./img/fondo-stock.jpg');
+    background-image: linear-gradient(rgba(72, 108, 100, 0.75), rgba(72, 108, 100, 0.75)), url('./img/fondo-stock.webp');
     background-size: cover;
     background-position: 50% 35%;
     background-repeat: no-repeat;
