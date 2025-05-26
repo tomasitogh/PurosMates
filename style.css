@@ -527,7 +527,7 @@ div.filtros-container-title h3 {
 }
 .producto-card img {
     width: 100%;
-    height: 200px;
+    height: 330px;
     object-fit: cover;
 }
 .producto-card h3 {
@@ -1211,5 +1211,196 @@ div.filtros-container-title h3 {
     .about-img-vertical {
         width: 100%;
         max-width: 280px;
+    }
+}
+
+/* Estilos para el panel de producto */
+.producto-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    z-index: 1002;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    padding: 24px;
+}
+
+.producto-panel.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.producto-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.producto-panel-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+    color: #38675a;
+    transition: color 0.3s ease;
+}
+
+.producto-panel-close:hover {
+    color: #2d5d52;
+}
+
+.producto-panel-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.producto-panel-images {
+    position: relative;
+}
+
+.producto-panel-main-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.producto-panel-thumbnails {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.producto-panel-thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.producto-panel-thumbnail.active {
+    opacity: 1;
+    border: 2px solid #2d5d52;
+}
+
+.producto-panel-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.producto-panel-info h2 {
+    color: #2d5d52;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.producto-panel-info p {
+    color: #666;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.producto-panel-precio {
+    font-size: 28px;
+    color: #2d5d52;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+.producto-panel-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: auto;
+}
+
+.btn-comprar-ahora {
+    flex: 1;
+    padding: 16px;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-comprar-ahora:hover {
+    background: #128C7E;
+}
+
+.btn-agregar-panel {
+    flex: 1;
+    padding: 16px;
+    background: #2d5d52;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-agregar-panel:hover {
+    background: #1e3f38;
+}
+
+.producto-panel-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.producto-panel-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Estilos para el hover de producto-card */
+.producto-card {
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.producto-card:hover {
+    border-color: #000;
+    transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+    .producto-panel-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .producto-panel-main-image {
+        height: 300px;
+    }
+    
+    .producto-panel-buttons {
+        flex-direction: column;
     }
 }

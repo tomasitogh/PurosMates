@@ -224,8 +224,8 @@
             background-color: #ff4444;
             border: none;
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            min-width: 30px;
+            min-height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -449,10 +449,14 @@
                     <h3>${producto.nombre}</h3>
                     <p>${producto.descripcion}</p>
                     <p class="precio">$${producto.precio}</p>
-                    <button onclick="agregarAlCarrito(${producto.id})" class="btn-agregar" ${producto.stock === 0 ? 'disabled' : ''}>
+                    <button onclick="event.stopPropagation(); agregarAlCarrito(${producto.id})" class="btn-agregar" ${producto.stock === 0 ? 'disabled' : ''}>
                         ${producto.stock === 0 ? 'No disponible' : 'Agregar al carrito'}
                     </button>
                 `;
+                
+                // Agregar evento click para mostrar el panel
+                productoElement.addEventListener('click', () => mostrarPanelProducto(producto.id));
+                
                 grid.appendChild(productoElement);
             });
         }
@@ -649,7 +653,7 @@
             carritoFlotante.classList.add('visible');
         }
 
-        // Event Listeners para cerrar el panel/modal
+        // Agregar event listeners para cerrar el panel
         document.addEventListener('DOMContentLoaded', () => {
             cargarProductos(); // Cargar productos al iniciar
             document.getElementById('carrito-panel-close').addEventListener('click', cerrarCarrito);
@@ -661,6 +665,11 @@
                     cerrarModal();
                 }
             });
+
+            // Event listeners para el panel de producto
+            document.getElementById('producto-panel-close').addEventListener('click', cerrarPanelProducto);
+            document.getElementById('producto-panel-overlay').addEventListener('click', cerrarPanelProducto);
+
             // Interacción dentro del modal reinicia el temporizador
             document.getElementById('carrito-modal').addEventListener('mousedown', (e) => {
                 // Solo reiniciar si el modal está activo y el click no es en el overlay
@@ -711,6 +720,71 @@
                 mobileMenu.classList.remove('active');
             }
         });
+
+        // Panel de producto
+        function mostrarPanelProducto(id) {
+            const producto = productos.find(p => p.id === id);
+            if (!producto) return;
+
+            const panel = document.getElementById('producto-panel');
+            const overlay = document.getElementById('producto-panel-overlay');
+            const mainImage = document.getElementById('producto-panel-main-image');
+            const thumbnails = document.getElementById('producto-panel-thumbnails');
+            const nombre = document.getElementById('producto-panel-nombre');
+            const descripcion = document.getElementById('producto-panel-descripcion');
+            const precio = document.getElementById('producto-panel-precio');
+            const btnComprar = document.getElementById('btn-comprar-ahora');
+            const btnAgregar = document.getElementById('btn-agregar-panel');
+
+            // Actualizar contenido
+            nombre.textContent = producto.nombre;
+            descripcion.textContent = producto.descripcion;
+            precio.textContent = `$${producto.precio}`;
+
+            // Configurar imágenes
+            const todasLasFotos = [producto.imagen, ...producto.fotosExtras].filter(Boolean);
+            mainImage.src = todasLasFotos[0];
+            mainImage.alt = producto.nombre;
+
+            // Limpiar y agregar miniaturas
+            thumbnails.innerHTML = '';
+            todasLasFotos.forEach((foto, index) => {
+                const thumbnail = document.createElement('img');
+                thumbnail.src = foto;
+                thumbnail.alt = `${producto.nombre} - Vista ${index + 1}`;
+                thumbnail.className = 'producto-panel-thumbnail' + (index === 0 ? ' active' : '');
+                thumbnail.onclick = () => {
+                    mainImage.src = foto;
+                    document.querySelectorAll('.producto-panel-thumbnail').forEach(thumb => {
+                        thumb.classList.remove('active');
+                    });
+                    thumbnail.classList.add('active');
+                };
+                thumbnails.appendChild(thumbnail);
+            });
+
+            // Configurar botones
+            btnComprar.onclick = () => {
+                const mensaje = `Hola, me gustaría comprar el siguiente producto:\n\n${producto.nombre}\nPrecio: $${producto.precio}`;
+                window.open(`https://wa.me/5491125129852?text=${encodeURIComponent(mensaje)}`, '_blank');
+            };
+
+            btnAgregar.onclick = () => {
+                agregarAlCarrito(producto.id);
+                cerrarPanelProducto();
+            };
+
+            // Mostrar panel
+            panel.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function cerrarPanelProducto() {
+            const panel = document.getElementById('producto-panel');
+            const overlay = document.getElementById('producto-panel-overlay');
+            panel.classList.remove('active');
+            overlay.classList.remove('active');
+        }
     </script>
 
     <!-- Panel lateral del carrito -->
@@ -750,6 +824,32 @@
         <div class="carrito-modal-buttons">
             <button class="btn-ir-carrito" onclick="window.location.href='./carrito.html'">Ir al Carrito</button>
             <button class="btn-seguir-comprando" onclick="cerrarModal()">Seguir Comprando</button>
+        </div>
+    </div>
+
+    <!-- Panel de producto -->
+    <div class="producto-panel-overlay" id="producto-panel-overlay"></div>
+    <div class="producto-panel" id="producto-panel">
+        <div class="producto-panel-header">
+            <h2>Detalles del Producto</h2>
+            <button class="producto-panel-close" id="producto-panel-close">&times;</button>
+        </div>
+        <div class="producto-panel-content">
+            <div class="producto-panel-images">
+                <img src="" alt="" class="producto-panel-main-image" id="producto-panel-main-image">
+                <div class="producto-panel-thumbnails" id="producto-panel-thumbnails">
+                    <!-- Las miniaturas se agregarán dinámicamente -->
+                </div>
+            </div>
+            <div class="producto-panel-info">
+                <h2 id="producto-panel-nombre"></h2>
+                <p id="producto-panel-descripcion"></p>
+                <p class="producto-panel-precio" id="producto-panel-precio"></p>
+                <div class="producto-panel-buttons">
+                    <button class="btn-comprar-ahora" id="btn-comprar-ahora">Comprar Ahora</button>
+                    <button class="btn-agregar-panel" id="btn-agregar-panel">Agregar al Carrito</button>
+                </div>
+            </div>
         </div>
     </div>
 </body>
