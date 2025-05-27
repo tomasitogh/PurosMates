@@ -7,6 +7,105 @@
     <link rel="icon" href="./img/favicon.ico" type="image/png">
     <link rel="stylesheet" href="./style.css">
     <title>Carrito - Puros Mates</title>
+    <style>
+        .carrito-item, .descuento-item {
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto 20px auto;
+            box-sizing: border-box;
+        }
+        .carrito-item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+        }
+        .carrito-item img:hover {
+            box-shadow: 0 0 0 4px #2d5d5233;
+        }
+        .modal-imagen-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        .modal-imagen {
+            width: 500px;
+            max-width: 90vw;
+            height: 500px;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            background: #fff;
+            padding: 10px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-imagen img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: none;
+        }
+        .modal-imagen-cerrar {
+            position: absolute;
+            top: 10px;
+            right: 16px;
+            font-size: 2rem;
+            color: #2d5d52;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .modal-imagen-flecha {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(45,93,82,0.15);
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 3;
+            transition: background 0.2s;
+        }
+        .modal-imagen-flecha:hover {
+            background: rgba(45,93,82,0.35);
+        }
+        .modal-imagen-flecha svg {
+            width: 28px;
+            height: 28px;
+            fill: #2d5d52;
+        }
+        .modal-imagen-flecha.izq { left: 10px; }
+        .modal-imagen-flecha.der { right: 10px; }
+        @media (max-width: 600px) {
+            .carrito-item, .descuento-item {
+                max-width: 100vw;
+                width: 100vw;
+                border-radius: 0;
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="main-header">
@@ -108,6 +207,12 @@
     </footer>
 
     <script>
+        let productosData = [];
+        // Cargar productos.json al iniciar
+        fetch('./productos.json')
+            .then(res => res.json())
+            .then(data => { productosData = data.productos; });
+
         function cargarCarrito() {
             const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
             const contenedor = document.getElementById('carrito-items');
@@ -130,18 +235,20 @@
 
             let hayProductosAptos = false;
             let total = 0;
+            let hayMate = false;
+            let hayBombilla = false;
 
             carrito.forEach((item, index) => {
                 if (item.aptoParaGrabado === true) {
                     hayProductosAptos = true;
                 }
-                
+                if (item.tipos.includes('mate')) hayMate = true;
+                if (item.tipos.includes('bombilla')) hayBombilla = true;
                 total += item.precio;
-                
                 const itemElement = document.createElement('div');
                 itemElement.className = 'carrito-item';
                 itemElement.innerHTML = `
-                    <img src="${item.imagen}" alt="${item.nombre}" loading="lazy">
+                    <img src="${item.imagen}" alt="${item.nombre}" loading="lazy" onclick="ampliarImagenCarrito('${item.imagen}', '${item.nombre}')">
                     <div class="item-details">
                         <h3>${item.nombre}</h3>
                         <p>$${item.precio}</p>
@@ -150,6 +257,24 @@
                 `;
                 contenedor.appendChild(itemElement);
             });
+
+            // Aplicar descuento si hay mate y bombilla
+            let descuento = 0;
+            if (hayMate && hayBombilla) {
+                descuento = Math.round(total * 0.1);
+                const descuentoElement = document.createElement('div');
+                descuentoElement.className = 'carrito-item descuento-item';
+                descuentoElement.innerHTML = `
+                    <div class="item-details">
+                        <h3>Descuento mate + bombilla (10% OFF)</h3>
+                    </div>
+                    <div class="descuento-valor">-$${descuento}</div>
+                `;
+                contenedor.appendChild(descuentoElement);
+            }
+
+            // Mostrar el total con descuento aplicado
+            document.getElementById('total-precio').textContent = total - descuento;
 
             if (hayProductosAptos) {
                 grabadoOpciones.style.display = 'block';
@@ -193,14 +318,13 @@
                 }
             });
             
-            totalElement.textContent = total;
+            totalElement.textContent = total - descuento;
         }
 
         function eliminarDelCarrito(index) {
             let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
             carrito.splice(index, 1);
             localStorage.setItem('carrito', JSON.stringify(carrito));
-            actualizarTotal();
             cargarCarrito();
         }
 
@@ -252,6 +376,96 @@
                 mobileMenu.classList.remove('active');
             }
         });
+
+        // Modal para ampliar imagen del carrito con slider
+        function ampliarImagenCarrito(src, alt) {
+            // Buscar el producto en productosData
+            let producto = productosData.find(p => p.imagen === src || p.nombre === alt);
+            if (!producto) {
+                // fallback: solo mostrar la imagen clickeada
+                producto = { imagen: src, fotosExtras: [] };
+            }
+            const imagenes = [producto.imagen, ...(producto.fotosExtras || [])].filter(Boolean);
+            let actual = imagenes.indexOf(src);
+            if (actual === -1) actual = 0;
+
+            // Crear overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'modal-imagen-overlay';
+            overlay.onclick = (e) => { if (e.target === overlay) cerrarModalImagenCarrito(); };
+
+            // Crear modal
+            const modal = document.createElement('div');
+            modal.className = 'modal-imagen';
+
+            // Botón cerrar
+            const btnCerrar = document.createElement('button');
+            btnCerrar.className = 'modal-imagen-cerrar';
+            btnCerrar.innerHTML = '&times;';
+            btnCerrar.onclick = cerrarModalImagenCarrito;
+
+            // Flechas SVG lindas
+            function flechaSVG(direccion) {
+                if (direccion === 'izq') {
+                    return `<svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>`;
+                } else {
+                    return `<svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>`;
+                }
+            }
+            const btnPrev = document.createElement('button');
+            btnPrev.className = 'modal-imagen-flecha izq';
+            btnPrev.innerHTML = flechaSVG('izq');
+            btnPrev.onclick = (e) => { e.stopPropagation(); cambiar(-1); };
+
+            const btnNext = document.createElement('button');
+            btnNext.className = 'modal-imagen-flecha der';
+            btnNext.innerHTML = flechaSVG('der');
+            btnNext.onclick = (e) => { e.stopPropagation(); cambiar(1); };
+
+            // Imagen
+            const img = document.createElement('img');
+            function renderImg() {
+                img.src = imagenes[actual];
+                img.alt = alt;
+            }
+            renderImg();
+
+            // Slider logic
+            function cambiar(dir) {
+                actual = (actual + dir + imagenes.length) % imagenes.length;
+                renderImg();
+            }
+
+            // Navegación con teclado
+            function keyHandler(e) {
+                if (e.key === 'ArrowLeft') cambiar(-1);
+                if (e.key === 'ArrowRight') cambiar(1);
+                if (e.key === 'Escape') cerrarModalImagenCarrito();
+            }
+            setTimeout(() => document.addEventListener('keydown', keyHandler), 10);
+
+            // Armar modal
+            modal.appendChild(btnCerrar);
+            if (imagenes.length > 1) modal.appendChild(btnPrev);
+            modal.appendChild(img);
+            if (imagenes.length > 1) modal.appendChild(btnNext);
+            overlay.appendChild(modal);
+            document.body.appendChild(overlay);
+
+            // Guardar referencia para cerrar y limpiar event
+            window._cerrarModalImagenCarrito = () => {
+                document.removeEventListener('keydown', keyHandler);
+                cerrarModalImagenCarrito();
+            };
+        }
+        function cerrarModalImagenCarrito() {
+            const overlay = document.querySelector('.modal-imagen-overlay');
+            if (overlay) overlay.remove();
+            if (window._cerrarModalImagenCarrito) {
+                document.removeEventListener('keydown', window._cerrarModalImagenCarrito);
+                window._cerrarModalImagenCarrito = null;
+            }
+        }
     </script>
 </body>
 </html>
