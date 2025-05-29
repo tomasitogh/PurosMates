@@ -455,6 +455,33 @@
                 margin-right: 0 !important;
             }
         }
+
+        .colores-disponibles {
+            margin: 8px 0 4px 0;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+        .color-circulo {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+        .color-circulo.no-disponible {
+            filter: grayscale(1);
+            opacity: 0.5;
+        }
+        .color-circulo.no-disponible::after {
+            content: '';
+            position: absolute;
+            left: 2px; top: 9px;
+            width: 16px; height: 2px;
+            background: #888;
+            transform: rotate(-20deg);
+        }
     </style>
 
     <script>
@@ -503,6 +530,17 @@
                     <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
                     <h3>${producto.nombre}</h3>
                     <p>${producto.descripcion}</p>
+                    <div class="colores-disponibles">
+                        ${(producto.colores || []).map(color => {
+                            if (Array.isArray(color.hex)) {
+                                // Dos colores: círculo partido en diagonal
+                                return `<span class="color-circulo${!color.disponible ? ' no-disponible' : ''}" style="background: linear-gradient(135deg, ${color.hex[0]} 50%, ${color.hex[1]} 50%);"></span>`;
+                            } else {
+                                // Un solo color
+                                return `<span class="color-circulo${!color.disponible ? ' no-disponible' : ''}" style="background:${color.hex}"></span>`;
+                            }
+                        }).join('')}
+                    </div>
                     <p class="precio">$${producto.precio}</p>
                     <button onclick="event.stopPropagation(); agregarAlCarrito(${producto.id})" class="btn-agregar" ${producto.stock === 0 ? 'disabled' : ''}>
                         ${producto.stock === 0 ? 'No disponible' : 'Agregar al carrito'}
