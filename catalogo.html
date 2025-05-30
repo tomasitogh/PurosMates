@@ -457,10 +457,11 @@
         }
 
         .colores-disponibles {
-            margin: 8px 0 4px 0;
+            margin: 0 0 4px 0;
             display: flex;
             gap: 6px;
             align-items: center;
+            padding: 0 16px;
         }
         .color-circulo {
             display: inline-block;
@@ -470,28 +471,18 @@
             border: 1px solid #ccc;
             position: relative;
         }
-        .color-circulo.no-disponible {
-            filter: grayscale(1);
-            opacity: 0.5;
-        }
-        .color-circulo.no-disponible::after {
-            content: '';
-            position: absolute;
-            left: 2px; top: 9px;
-            width: 16px; height: 2px;
-            background: #888;
-            transform: rotate(-20deg);
-        }
     </style>
 
     <script>
         let productos = [];
+        let coloresGlobales = {};
 
         // Función para cargar los productos desde el archivo JSON
         async function cargarProductos() {
             try {
                 const response = await fetch('./productos.json');
                 const data = await response.json();
+                coloresGlobales = data.colores || {};
                 productos = data.productos;
                 filtrarProductos(); // Filtrar productos después de cargarlos
             } catch (error) {
@@ -523,27 +514,25 @@
                 const productoElement = document.createElement('div');
                 productoElement.className = 'producto-card';
                 productoElement.innerHTML = `
-                    <div class="stock-badge ${producto.stock === 0 ? 'sin-stock' : ''}">
-                        ${producto.stock === 0 ? 'Sin stock' : `${producto.stock} en stock`}
+                    <div class="stock-badge ${!producto.stock ? 'sin-stock' : ''}">
+                        ${!producto.stock ? 'Sin stock' : 'En stock'}
                     </div>
-                    ${producto.stock === 0 ? '<div class="encargue-badge">Se pide por encargue</div>' : ''}
+                    ${!producto.stock ? '<div class="encargue-badge">Se pide por encargue</div>' : ''}
                     <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
                     <h3>${producto.nombre}</h3>
                     <p>${producto.descripcion}</p>
+                    ${(producto.colores && producto.colores.length > 0) ? `
+                        <h4 style="margin: 0 0 2px 0; font-size: 1em; font-weight: bold; color: rgba(45, 93, 82); padding: 0 16px;">Colores disponibles</h4>
+                    ` : ''}
                     <div class="colores-disponibles">
-                        ${(producto.colores || []).map(color => {
-                            if (Array.isArray(color.hex)) {
-                                // Dos colores: círculo partido en diagonal
-                                return `<span class="color-circulo${!color.disponible ? ' no-disponible' : ''}" style="background: linear-gradient(135deg, ${color.hex[0]} 50%, ${color.hex[1]} 50%);"></span>`;
-                            } else {
-                                // Un solo color
-                                return `<span class="color-circulo${!color.disponible ? ' no-disponible' : ''}" style="background:${color.hex}"></span>`;
-                            }
+                        ${(producto.colores || []).map(colorKey => {
+                            const colorHex = coloresGlobales[colorKey];
+                            return `<span class="color-circulo" style="background:${colorHex}"></span>`;
                         }).join('')}
                     </div>
                     <p class="precio">$${producto.precio}</p>
-                    <button onclick="event.stopPropagation(); agregarAlCarrito(${producto.id})" class="btn-agregar" ${producto.stock === 0 ? 'disabled' : ''}>
-                        ${producto.stock === 0 ? 'No disponible' : 'Agregar al carrito'}
+                    <button onclick="event.stopPropagation(); agregarAlCarrito(${producto.id})" class="btn-agregar" ${!producto.stock ? 'disabled' : ''}>
+                        ${!producto.stock ? 'No disponible' : 'Agregar al carrito'}
                     </button>
                 `;
                 
@@ -922,7 +911,7 @@
             };
 
             // Deshabilitar botones si no hay stock
-            if (producto.stock === 0) {
+            if (!producto.stock) {
                 btnComprar.disabled = true;
                 btnComprar.style.backgroundColor = '#ccc';
                 btnComprar.style.cursor = 'not-allowed';

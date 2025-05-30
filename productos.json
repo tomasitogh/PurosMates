@@ -1,4 +1,15 @@
 {
+    "colores": {
+        "negro": "#222",
+        "borravino": "#743018",
+        "marron": "#6a451d",
+        "blanco": "#fff",
+        "crudo": "#a17a50",
+        "algarrobo": "#a46e11",
+        "azul": "#3232a5",
+        "celeste": "#00ffff",
+        "amarillo": "#ffff00"
+    },
     "productos": [
         {
             "id": 1,
@@ -9,12 +20,8 @@
             "descripcion": "Mate criollo calabaza pulida con base de cuero crudo cocido",
             "tipos": ["mate"],
             "aptoParaGrabado": false,
-            "stock": 3,
-            "colores": [
-                { "nombre": "Verde", "hex": "#2d5d52", "disponible": true },
-                { "nombre": "Negro", "hex": "#222", "disponible": true },
-                { "nombre": "Rojo", "hex": "#c0392b", "disponible": false }
-            ]
+            "stock": true,
+            "colores": [ "crudo"]
         },
         {
             "id": 2,
@@ -25,11 +32,8 @@
             "descripcion": "Mate criollo con base de cuero crudo cocido, virola de alpaca cincelada",
             "tipos": ["mate"],
             "aptoParaGrabado": false,
-            "stock": 2,
-            "colores": [
-                { "nombre": "Marrón y Negro", "hex": ["#8B5C2A", "#222"], "disponible": true },
-                { "nombre": "Marrón", "hex": "#8B5C2A", "disponible": false }
-            ]
+            "stock": true,
+            "colores": ["crudo"]
         },
         
         {
@@ -41,7 +45,8 @@
             "descripcion": "Mate camionero de algarrobo con virola lisa de acero inoxidable",
             "tipos": ["mate"],
             "aptoParaGrabado": true,
-            "stock": 0
+            "stock": false,
+            "colores": ["algarrobo"]
         },
         {
             "id": 5,
@@ -52,7 +57,8 @@
             "descripcion": "Mate imperial de algarrobo con virola lisa y guarda de alpaca",
             "tipos": ["mate"],
             "aptoParaGrabado": true,
-            "stock": 0
+            "stock": false,
+            "colores": ["algarrobo"]
         },
         {
             "id": 6,
@@ -63,7 +69,8 @@
             "descripcion": "Mate torpedo de calabaza exterior de cuero reforzado con virola de acero inoxidable lisa",
             "tipos": ["mate"],
             "aptoParaGrabado": false,
-            "stock": 1
+            "stock": true,
+            "colores": ["borravino"]
         },
         {
             "id": 7,
@@ -74,7 +81,8 @@
             "descripcion": "Mate torpedo de calabaza exterior de cuero reforzado con virola de alpaca cincelada",
             "tipos": ["mate"],
             "aptoParaGrabado": false,
-            "stock": 0
+            "stock": true,
+            "colores": ["borravino"]
         },
         {
             "id": 8,
@@ -85,7 +93,8 @@
             "descripcion": "Mate torpedo de calabaza exterior de cuero reforzado con virola cincelada, base y bolitas de alpaca",
             "tipos": ["mate"],
             "aptoParaGrabado": false,
-            "stock": 0
+            "stock": false,
+            "colores": ["negro"]
         },
         {
             "id": 9,
@@ -96,7 +105,8 @@
             "descripcion": "Mate camionero de calabaza exterior de cuero reforzado, labrado y con virola de acero inoxidable lisa",
             "tipos": ["mate"],
             "aptoParaGrabado": true,
-            "stock": 0
+            "stock": false,
+            "colores": ["negro"]
         },
         {
             "id": 10,
@@ -107,7 +117,8 @@
             "descripcion": "Mate camionero de calabaza con exterior de cuero reforzado y virola de acero inoxidable",
             "tipos": ["mate"],
             "aptoParaGrabado": true,
-            "stock": 0
+            "stock": true,
+            "colores": ["negro", "borravino"]
         },
         {
             "id": 11,
@@ -118,7 +129,8 @@
             "descripcion": "Mate imperial de calabaza con exterior de cuero reforzado con virola de alpaca lisa",
             "tipos": ["mate"],
             "aptoParaGrabado": true,
-            "stock": 3
+            "stock": true,
+            "colores": ["negro", "borravino"]
         },
         {
             "id": 12,
@@ -129,7 +141,8 @@
             "descripcion": "Mate imperial de calabaza con exterior de cuero reforzado con virola de alpaca cincelada",
             "tipos": ["mate"],
             "aptoParaGrabado": false,
-            "stock": 1
+            "stock": true,
+            "colores": ["negro"]
         },
         {
             "id": 13,
@@ -140,7 +153,8 @@
             "descripcion": "Mate imperial de calabaza con exterior de cuero reforzado con virola de alpaca cincelada y base de cuero labrado",
             "tipos": ["mate"],
             "aptoParaGrabado": true,
-            "stock": 1
+            "stock": true,
+            "colores": ["negro"]
         },
         {
             "id": 14,
@@ -151,7 +165,7 @@
             "descripcion": "Bombilla de acero inoxidable pico de loro lisa",
             "tipos": ["bombilla"],
             "aptoParaGrabado": false,
-            "stock": 5,
+            "stock": true,
             "colores": []
         },
         {
@@ -163,7 +177,8 @@
             "descripcion": "Bombilla de acero inoxidable chata curva",
             "tipos": ["bombilla"],
             "aptoParaGrabado": false,
-            "stock": 4
+            "stock": true,
+            "colores": []
         },
         {
             "id": 16,
@@ -174,7 +189,8 @@
             "descripcion": "Bombilla de alpaca pico de loro lisa",
             "tipos": ["bombilla"],
             "aptoParaGrabado": false,
-            "stock": 3
+            "stock": true,
+            "colores": []
         },
         {
             "id": 17,
@@ -185,7 +201,8 @@
             "descripcion": "Bombillón de alpaca, consultar modelos disponibles",
             "tipos": ["bombilla"],
             "aptoParaGrabado": false,
-            "stock": 0
+            "stock": false,
+            "colores": []
         },
         {
             "id": 18,
@@ -196,7 +213,8 @@
             "descripcion": "Bombillón de alpaca y bronce, consultar modelos disponibles",
             "tipos": ["bombilla"],
             "aptoParaGrabado": false,
-            "stock": 0
+            "stock": false,
+            "colores": []
         },
         {
             "id": 19,
@@ -207,11 +225,8 @@
             "descripcion": "Yerbera de cuero gamuzado con cierre de cremallera",
             "tipos": ["accesorio"],
             "aptoParaGrabado": false,
-            "stock": 6,
-            "colores": [
-                { "nombre": "Blanco y Negro", "hex": ["#fff", "#222"], "disponible": true },
-                { "nombre": "Negro", "hex": "#222", "disponible": true }
-            ]
+            "stock": true,
+            "colores": ["negro"]
         },
         {
             "id": 20,
@@ -226,7 +241,8 @@
             "descripcion": "Yerbera de cuero gamuzado con cierre de cremallera y bolsillo para bombilla",
             "tipos": ["accesorio"],
             "aptoParaGrabado": false,
-            "stock": 4
+            "stock": true,
+            "colores": ["negro", "borravino", "azul", "crudo"]
         },
         {
             "id": 21,
@@ -237,7 +253,8 @@
             "descripcion": "Canasta matera de ecocuero",
             "tipos": ["accesorio"],
             "aptoParaGrabado": false,
-            "stock": 3
+            "stock": true,
+            "colores": ["negro"]
         },
         {
             "id": 22,
@@ -248,7 +265,8 @@
             "descripcion": "Canasta matera de ecocuero reforzada con divisor interno",
             "tipos": ["accesorio"],
             "aptoParaGrabado": false,
-            "stock": 5
+            "stock": true,
+            "colores": ["negro"]
         },
         {
             "id": 23,
@@ -259,7 +277,8 @@
             "descripcion": "Canasta matera de cuero reforzada con divisor interno",
             "tipos": ["accesorio"],
             "aptoParaGrabado": false,
-            "stock": 2
+            "stock": true,
+            "colores": ["negro", "borravino"]
         },
         {
             "id": 24,
@@ -270,7 +289,8 @@
             "descripcion": "Tapamate de silicona, evita derrames y salpicaduras para guardar tu mate",
             "tipos": ["accesorio"],
             "aptoParaGrabado": false,
-            "stock": 5
+            "stock": true,
+            "colores": ["negro"]
         },
         {
             "id": 25,
@@ -281,7 +301,8 @@
             "descripcion": "Tapabombi de silicona, evita derrames y salpicaduras para guardar tu bombilla",
             "tipos": ["accesorio"],
             "aptoParaGrabado": false,
-            "stock": 5
+            "stock": true,
+            "colores": ["negro", "celeste", "amarillo"]
         },
         {
             "id": 26,
@@ -292,7 +313,8 @@
             "descripcion": "Portamate de cuero. Ideal para el auto y  llevar tu mate a todos lados",
             "tipos": ["accesorio"],
             "aptoParaGrabado": false,
-            "stock": 0
+            "stock": false,
+            "colores": ["negro", "borravino"]
         }
     ]
 } 
