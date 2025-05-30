@@ -59,8 +59,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 24px;
-    margin: 0 12px;
+    padding: 0 16px;
+    margin: 0;
 }
 .nav-links-group {
     display: flex;
@@ -73,6 +73,8 @@ body {
     gap: 10px;
 }
 .header-logo-img {
+    min-width: 48px;
+    min-height: 48px;
     height: 48px;
     width: 48px;
     object-fit: contain;
@@ -876,21 +878,20 @@ div.filtros-container-title h3 {
 }
 .hero-content {
     max-width: 800px;
-    margin: 0 auto;
-    padding: 0 56px;
+    padding: 0 8px;
     text-align: left;
 }
 .hero-content h1 {
     font-family: 'SF Pro', sans-serif;
     font-weight: bold;
     font-size: 48px;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 .hero-content p {
     font-family: 'SF Pro', sans-serif;
     font-weight: normal;
     font-size: 24px;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
     opacity: 0.9;
 }
 .btn-primary {
@@ -945,7 +946,7 @@ div.filtros-container-title h3 {
     padding: 80px 48px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    gap: 0px;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -1217,7 +1218,7 @@ div.filtros-container-title h3 {
         text-align: center;
     }
     .about-image {
-        margin-top: 32px;
+        margin-top: 24px;
     }
     .about-img-vertical {
         width: 140px;
