@@ -1417,16 +1417,28 @@ div.filtros-container-title h3 {
 }
 
 @media (max-width: 768px) {
+    .producto-panel {
+        width: 95vw;
+        max-width: 95vw; 
+        max-height: 90vh; 
+        top: 50%; 
+        left: 50%; 
+        overflow-y: auto; 
+    }
     .producto-panel-content {
         grid-template-columns: 1fr;
     }
-    
+
     .producto-panel-main-image {
         height: 300px;
+        min-width: 150px;
+        min-height: 150px;
     }
-    
+
     .producto-panel-buttons {
-        flex-direction: column;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
     }
 }
 
@@ -1438,4 +1450,13 @@ div.filtros-container-title h3 {
 
 .carrito-items .btn-comprar {
     margin-top: 8px;
+}
+.pedir-encargue {  
+    background: #c87151;
+    color: white;
+    cursor: pointer;
+}
+.pedir-encargue:hover {
+    background: #ba7b64;
+    color: white;
 }

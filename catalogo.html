@@ -531,8 +531,9 @@
                         }).join('')}
                     </div>
                     <p class="precio">$${producto.precio}</p>
-                    <button onclick="event.stopPropagation(); agregarAlCarrito(${producto.id})" class="btn-agregar" ${!producto.stock ? 'disabled' : ''}>
-                        ${!producto.stock ? 'No disponible' : 'Agregar al carrito'}
+                    <button onclick="${!producto.stock ? `abrirEncargueWhatsapp(${producto.id})` : `event.stopPropagation(); agregarAlCarrito(${producto.id})`}" 
+                            class="btn-agregar ${!producto.stock ? 'pedir-encargue' : ''}">
+                        ${!producto.stock ? 'Pedir por encargue' : 'Agregar al carrito'}
                     </button>
                 `;
                 
@@ -943,6 +944,14 @@
             const overlay = document.getElementById('producto-panel-overlay');
             panel.classList.remove('active');
             overlay.classList.remove('active');
+        }
+
+        function abrirEncargueWhatsapp(id) {
+            const producto = productos.find(p => p.id === id);
+            if (!producto) return;
+            
+            const mensaje = `Hola, no tenés el producto *${producto.nombre}* en stock, pero quisiera encargártelo.`;
+            window.open(`https://wa.me/5491125129852?text=${encodeURIComponent(mensaje)}`, '_blank');
         }
     </script>
 
