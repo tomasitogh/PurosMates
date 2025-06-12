@@ -108,6 +108,15 @@
         }
     </style>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16987721324"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-16987721324');
+</script>
 <body>
     <header class="main-header">
         <nav class="navbar">
@@ -209,6 +218,8 @@
 
     <script>
         let productosData = [];
+        let descuento = 0; // Variable global para el descuento
+
         // Cargar productos.json al iniciar
         fetch('./productos.json')
             .then(res => res.json())
@@ -231,6 +242,7 @@
                 grabadoOpciones.style.display = 'none';
                 grabadoMensaje.innerHTML = '';
                 document.getElementById('total-precio').textContent = '0';
+                descuento = 0; 
                 return;
             }
 
@@ -260,7 +272,7 @@
             });
 
             // Aplicar descuento si hay mate y bombilla
-            let descuento = 0;
+            descuento = 0; 
             if (hayMate && hayBombilla) {
                 descuento = Math.round(total * 0.1);
                 const descuentoElement = document.createElement('div');
@@ -299,7 +311,6 @@
                 grabadoOpciones.style.display = 'none';
                 grabadoMensaje.innerHTML = '<p class="mensaje-no-grabado">Los productos seleccionados no son aptos para grabado láser</p>';
             }
-
             actualizarTotal();
         }
 
