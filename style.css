@@ -1080,7 +1080,7 @@ div.filtros-container-title h3 {
 .btn-comprar {
     display: inline-block;
     padding: 12px 24px;
-    background-color: #8a9fa3;
+    background-color: #bd914a;
     color: white;
     text-decoration: none;
     border-radius: 20px;
@@ -1089,7 +1089,7 @@ div.filtros-container-title h3 {
 }
 
 .btn-comprar:hover {
-    background-color: #71878a;
+    background-color: #ffb642;
 }
 
 .features-cards {
