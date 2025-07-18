@@ -123,7 +123,7 @@
         {
             "id": 8,
             "nombre": "Torpedo virola cincelada y base con bolitas de alpaca",
-            "precio": 32000,
+            "precio": 40000,
             "imagen": "./img/img-producto-id8/torpedoAlpacaCinceladoYBolitas-1.webp",
             "fotosExtras": [],
             "descripcion": "Mate torpedo de calabaza exterior de cuero reforzado con virola cincelada, base y bolitas de alpaca",
@@ -172,7 +172,7 @@
         {
             "id": 14,
             "nombre": "Bombilla Pico de Loro de acero inox",
-            "precio": 7000,
+            "precio": 8000,
             "imagen": "./img/img-producto-id14/bombillasAceroInox-1.webp",
             "fotosExtras": ["./img/img-producto-id14/bombillasAceroInox-2.webp","./img/img-producto-id14/bombillaPicoLoroAceroInox-3.webp"],
             "descripcion": "Bombilla de acero inoxidable pico de loro lisa",
@@ -184,7 +184,7 @@
         {
             "id": 15,
             "nombre": "Bombilla de acero inox chata",
-            "precio": 5000,
+            "precio": 6000,
             "imagen": "./img/img-producto-id15/bombillaChataAceroInox-3.webp",
             "fotosExtras": ["./img/img-producto-id15/bombillaChataAceroInox-1.webp","./img/img-producto-id15/bombillaChataAceroInox-2.webp"],
             "descripcion": "Bombilla de acero inoxidable chata curva",
@@ -232,7 +232,7 @@
         {
             "id": 19,
             "nombre": "Yerbera de gamuza",
-            "precio": 7000,
+            "precio": 9000,
             "imagen": "./img/img-producto-id19/yerberoGamuzaNegro-1.webp",
             "fotosExtras": ["./img/img-producto-id19/yerberoGamuzaNegro-2.webp"],
             "descripcion": "Yerbera de cuero gamuzado con cierre de cremallera",
