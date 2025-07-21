@@ -14,7 +14,7 @@
         {
             "id": 1,
             "nombre": "Criollo con base de cuero",
-            "precio": 14000,
+            "precio": 15000,
             "imagen": "./img/img-producto-id1/criollo-1.webp",
             "fotosExtras": ["./img/img-producto-id1/criolloPersonalizado-1.webp","./img/img-producto-id1/criolloPersonalizado-2.webp"],
             "descripcion": "Mate criollo calabaza pulida con base de cuero crudo cocido",
@@ -26,7 +26,7 @@
         {
             "id": 2,
             "nombre": "Criollo Premium virola de alpaca cincelada",
-            "precio": 28000,
+            "precio": 32000,
             "imagen": "./img/img-producto-id2/criolloPremium-1.webp",
             "fotosExtras": ["./img/img-producto-id2/criolloPremium-2.webp"],
             "descripcion": "Mate criollo con base de cuero crudo cocido, virola de alpaca cincelada",
@@ -38,7 +38,7 @@
         {
             "id": 27,
             "nombre": "Criollo 'Coco' con base de cuero",
-            "precio": 14000,
+            "precio": 15000,
             "imagen": "./img/img-producto-id27/criollo-coco-1.webp",
             "fotosExtras": ["./img/img-producto-id27/criollo-coco-2.webp", "./img/img-producto-id27/criollo-coco-3.webp"],
             "descripcion": "Mate criollo calabaza pulida con forma de 'coco' con base de cuero crudo cocido",
@@ -75,7 +75,7 @@
         {
             "id": 6,
             "nombre": "Torpedo virola de acero inox lisa",
-            "precio": 24000,
+            "precio": 26000,
             "imagen": "./img/img-producto-id6/torpedoAceroLiso-4.webp",
             "fotosExtras": ["./img/img-producto-id6/torpedoAceroLiso-3.webp", "./img/img-producto-id6/torpedoAceroLiso-2.webp","./img/img-producto-id6/torpedoAceroLiso-1.webp"],
             "descripcion": "Mate torpedo de calabaza exterior de cuero reforzado con virola de acero inoxidable lisa",
@@ -87,7 +87,7 @@
         {
             "id": 10,
             "nombre": "Camionero virola de acero inox lisa",
-            "precio": 24000,
+            "precio": 26000,
             "imagen": "./img/img-producto-id10/camioneroLiso-2.webp",
             "fotosExtras": ["./img/img-producto-id10/matepas-1_camionerosLisos-2.webp", "./img/img-producto-id10/camioneroPersonalizado-1.webp"],
             "descripcion": "Mate camionero de calabaza con exterior de cuero reforzado y virola de acero inoxidable",
@@ -99,7 +99,7 @@
         {
             "id": 11,
             "nombre": "Imperial virola de alpaca lisa",
-            "precio": 32000,
+            "precio": 33000,
             "imagen": "./img/img-producto-id11/imperialLiso-3.webp",
             "fotosExtras": ["./img/img-producto-id11/imperialLisoPersonalizado-2.webp","./img/img-producto-id11/imperialLisoPersonalizado-3.webp","./img/img-producto-id11/imperialLiso-2.webp","./img/img-producto-id11/imperialLiso-1.webp"],
             "descripcion": "Mate imperial de calabaza con exterior de cuero reforzado con virola de alpaca lisa",
@@ -111,7 +111,7 @@
         {
             "id": 7,
             "nombre": "Torpedo virola cincelada de alpaca",
-            "precio": 28000,
+            "precio": 34000,
             "imagen": "./img/img-producto-id7/TorpedoAlpacaCincelado-1.webp",
             "fotosExtras": ["./img/img-producto-id7/torpedoAlpacaCincelado-2.webp"],
             "descripcion": "Mate torpedo de calabaza exterior de cuero reforzado con virola de alpaca cincelada",
@@ -132,23 +132,11 @@
             "stock": false,
             "colores": ["negro"]
         },
-        {
-            "id": 9,
-            "nombre": "Camionero virola de acero inox lisa con cuero labrado",
-            "precio": 22000,
-            "imagen": "./img/img-producto-id9/camioneroAceroLisoLabrado-1.webp",
-            "fotosExtras": [],
-            "descripcion": "Mate camionero de calabaza exterior de cuero reforzado, labrado y con virola de acero inoxidable lisa",
-            "tipos": ["mate"],
-            "aptoParaGrabado": true,
-            "stock": false,
-            "colores": ["negro"]
-        },
         
         {
             "id": 12,
             "nombre": "Imperial virola de alpaca cincelada",
-            "precio": 35000,
+            "precio": 37000,
             "imagen": "./img/img-producto-id12/imperialCincelado-2.webp",
             "fotosExtras": ["./img/img-producto-id12/imperialCincelado-1.webp","./img/img-producto-id12/imperialCincelado-3.webp"],
             "descripcion": "Mate imperial de calabaza con exterior de cuero reforzado con virola de alpaca cincelada",
@@ -196,7 +184,7 @@
         {
             "id": 16,
             "nombre": "Bombilla pico de loro de alpaca",
-            "precio": 12000,
+            "precio": 19000,
             "imagen": "./img/img-producto-id16/bombillaAlpaca-1.webp",
             "fotosExtras": ["./img/img-producto-id16/bombillaAlpaca-2.webp", "./img/img-producto-id16/bombillaAlpaca-3.webp"],
             "descripcion": "Bombilla de alpaca pico de loro lisa",
@@ -208,27 +196,16 @@
         {
             "id": 17,
             "nombre": "Bombillón de alpaca",
-            "precio": 22000,
+            "precio": 28000,
             "imagen": "./img/img-producto-id17/bombillonAlpaca-1.webp",
-            "fotosExtras": ["./img/img-producto-id17/bombillon-4.webp", "./img/img-producto-id17/bombillon-5.webp", "./img/img-producto-id17/bombillon-6.webp","./img/img-producto-id17/bombillon-2_criollo-2.webp"],
+            "fotosExtras": ["./img/img-producto-id18/bombillonPremium-1.webp","./img/img-producto-id17/bombillon-4.webp", "./img/img-producto-id17/bombillon-5.webp", "./img/img-producto-id17/bombillon-6.webp","./img/img-producto-id17/bombillon-2_criollo-2.webp"],
             "descripcion": "Bombillón de alpaca, consultar modelos disponibles",
-            "tipos": ["bombilla"],
-            "aptoParaGrabado": false,
-            "stock": true,
-            "colores": []
-        },
-        {
-            "id": 18,
-            "nombre": "Bombillón de alpaca premium",
-            "precio": 26000,
-            "imagen": "./img/img-producto-id18/bombillonPremium-1.webp",
-            "fotosExtras": [],
-            "descripcion": "Bombillón de alpaca y bronce, consultar modelos disponibles",
             "tipos": ["bombilla"],
             "aptoParaGrabado": false,
             "stock": false,
             "colores": []
         },
+        
         {
             "id": 19,
             "nombre": "Yerbera de gamuza",
@@ -244,7 +221,7 @@
         {
             "id": 20,
             "nombre": "Yerbero de gamuza con bolsillo",
-            "precio": 12000,
+            "precio": 14000,
             "imagen": "./img/img-producto-id20/yerberoGamuzaBolsillo-1.webp",
             "fotosExtras": ["./img/img-producto-id20/yerberoGamuzaBolsillo-2.webp",
             "./img/img-producto-id20/yerberoGamuzaBolsillo-3.webp",
@@ -272,7 +249,7 @@
         {
             "id": 22,
             "nombre": "Canasta de ecocuero reforzada",
-            "precio": 15000,
+            "precio": 17000,
             "imagen": "./img/img-producto-id22/CanastaEcocueroReforzada.webp",
             "fotosExtras": [],
             "descripcion": "Canasta matera de ecocuero reforzada con divisor interno",
@@ -296,7 +273,7 @@
         {
             "id": 24,
             "nombre": "TapaMate de silicona",
-            "precio": 10000,
+            "precio": 11500,
             "imagen": "./img/img-producto-id24/tapamate-3.webp",
             "fotosExtras": ["./img/img-producto-id24/tapamate-6.webp", "./img/img-producto-id24/tapamate-5.webp", "./img/img-producto-id24/tapamate-4.webp", "./img/img-producto-id24/tapamate-2.webp"],
             "descripcion": "Tapamate de silicona, evita derrames y salpicaduras para guardar tu mate",
@@ -308,7 +285,7 @@
         {
             "id": 25,
             "nombre": "TapaBombi de silicona",
-            "precio": 6000,
+            "precio": 7500,
             "imagen": "./img/img-producto-id25/Tapabombi.webp",
             "fotosExtras": ["./img/img-producto-id25/Tapabombi-2.webp"],
             "descripcion": "Tapabombi de silicona, evita derrames y salpicaduras para guardar tu bombilla",
