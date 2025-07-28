@@ -301,7 +301,7 @@
                         grabadoOpcion.innerHTML = `
                             <label>
                                 <input type="checkbox" id="grabado-${index}" onchange="actualizarTotal()">
-                                Agregar grabado láser en ${item.nombre} (+$10.000)
+                                Agregar grabado láser en ${item.nombre} (+$13.000)
                             </label>
                         `;
                         grabadoOpciones.appendChild(grabadoOpcion);
@@ -325,7 +325,7 @@
                 if (item.aptoParaGrabado === true) {
                     const checkbox = document.getElementById(`grabado-${index}`);
                     if (checkbox && checkbox.checked) {
-                        total += 10000;
+                        total += 13000;
                     }
                 }
             });
@@ -350,7 +350,7 @@
                 if (item.aptoParaGrabado === true) {
                     const checkbox = document.getElementById(`grabado-${index}`);
                     if (checkbox && checkbox.checked) {
-                        mensaje += `  * Con grabado láser (+$10.000)\n`;
+                        mensaje += `  * Con grabado láser (+$13.000)\n`;
                     }
                 }
             });

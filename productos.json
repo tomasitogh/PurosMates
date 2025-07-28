@@ -132,7 +132,18 @@
             "stock": false,
             "colores": ["negro"]
         },
-        
+        {
+            "id": 30,
+            "nombre": "Torpedo deluxe",
+            "precio": 27000,
+            "imagen": "./img/img-producto-id30/torpedoDeluxe.webp",
+            "fotosExtras": [],
+            "descripcion": "Mate torpedo con interior de acero inoxidable y exterior de cuero reforzado con virola lisa",
+            "tipos": ["mate"],
+            "aptoParaGrabado": false,
+            "stock": false,
+            "colores": ["negro"]
+        },
         {
             "id": 12,
             "nombre": "Imperial virola de alpaca cincelada",
@@ -143,6 +154,18 @@
             "tipos": ["mate"],
             "aptoParaGrabado": false,
             "stock": true,
+            "colores": ["negro"]
+        }, 
+        {
+            "id": 28,
+            "nombre": "Imperial deluxe",
+            "precio": 29000,
+            "imagen": "./img/img-producto-id28/imperialDeluxe-2.webp",
+            "fotosExtras": ["./img/img-producto-id28/imperialDeluxe-1.webp","./img/img-producto-id28/imperialDeluxe-3.webp"],
+            "descripcion": "Mate imperial con interior de acero inoxidable y exterior de cuero reforzado con virola lisa",
+            "tipos": ["mate"],
+            "aptoParaGrabado": true,
+            "stock": false,
             "colores": ["negro"]
         },
         {
@@ -156,18 +179,6 @@
             "aptoParaGrabado": true,
             "stock": true,
             "colores": ["negro"]
-        },
-        {
-            "id": 14,
-            "nombre": "Bombilla Pico de Loro de acero inox",
-            "precio": 8000,
-            "imagen": "./img/img-producto-id14/bombillasAceroInox-1.webp",
-            "fotosExtras": ["./img/img-producto-id14/bombillasAceroInox-2.webp","./img/img-producto-id14/bombillaPicoLoroAceroInox-3.webp"],
-            "descripcion": "Bombilla de acero inoxidable pico de loro lisa",
-            "tipos": ["bombilla"],
-            "aptoParaGrabado": false,
-            "stock": true,
-            "colores": []
         },
         {
             "id": 15,
@@ -269,6 +280,18 @@
             "aptoParaGrabado": false,
             "stock": true,
             "colores": ["negro", "borravino"]
+        },
+        {
+            "id": 29,
+            "nombre": "Luz de Mate",
+            "precio": 6000,
+            "imagen": "./img/img-producto-id29/luzDeMate-1.webp",
+            "fotosExtras": ["./img/img-producto-id29/luzDeMate-2.webp", "./img/img-producto-id29/luzDeMate-3.webp", "./img/img-producto-id29/luzDeMate-4.webp"],
+            "descripcion": "Luz de Mate; pequeña linterna para iluminar el interior del mate en la oscuridad",
+            "tipos": ["accesorio"],
+            "aptoParaGrabado": false,
+            "stock": true,
+            "colores": ["gris"]
         },
         {
             "id": 24,

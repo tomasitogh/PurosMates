@@ -524,9 +524,8 @@
                 productoElement.className = 'producto-card';
                 productoElement.innerHTML = `
                     <div class="stock-badge ${!producto.stock ? 'sin-stock' : ''}">
-                        ${!producto.stock ? 'Sin stock' : 'En stock'}
+                        ${!producto.stock ? 'Pedir por encargue' : 'En stock'}
                     </div>
-                    ${!producto.stock ? '<div class="encargue-badge">Se pide por encargue</div>' : ''}
                     <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
                     <h3>${producto.nombre}</h3>
                     <p>${producto.descripcion}</p>
@@ -910,10 +909,16 @@
             });
 
             // Configurar botones
-            btnComprar.onclick = () => {
-                const mensaje = `Hola, me gustaría comprar el siguiente producto:\n\n${producto.nombre}\nPrecio: $${producto.precio}`;
-                window.open(`https://wa.me/5491125129852?text=${encodeURIComponent(mensaje)}`, '_blank');
-            };
+            if (!producto.stock) {
+                btnComprar.onclick = () => {
+                    abrirEncargueWhatsapp(producto.id);
+                };
+            } else {
+                btnComprar.onclick = () => {
+                    const mensaje = `Hola, me gustaría comprar el siguiente producto:\n\n${producto.nombre}\nPrecio: $${producto.precio}`;
+                    window.open(`https://wa.me/5491125129852?text=${encodeURIComponent(mensaje)}`, '_blank');
+                };
+            }
 
             btnAgregar.onclick = () => {
                 agregarAlCarrito(producto.id);
@@ -922,10 +927,10 @@
 
             // Deshabilitar botones si no hay stock
             if (!producto.stock) {
-                btnComprar.disabled = true;
-                btnComprar.style.backgroundColor = '#ccc';
-                btnComprar.style.cursor = 'not-allowed';
-                btnComprar.textContent = 'No disponible';
+                btnComprar.disabled = false;
+                btnComprar.style.backgroundColor = '';
+                btnComprar.style.cursor = '';
+                btnComprar.textContent = 'Pedir por encargue';
                 
                 btnAgregar.disabled = true;
                 btnAgregar.style.backgroundColor = '#ccc';
@@ -960,7 +965,9 @@
             if (!producto) return;
             
             const mensaje = `Hola, no tenés el producto *${producto.nombre}* en stock, pero quisiera encargártelo.`;
-            window.open(`https://wa.me/5491125129852?text=${encodeURIComponent(mensaje)}`, '_blank');
+            const numero = "+5491130548207";
+            const whatsappUrl = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+            window.open(whatsappUrl, '_blank');
         }
     </script>
 
