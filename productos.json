@@ -205,6 +205,18 @@
             "colores": []
         },
         {
+            "id": 31,
+            "nombre": "Bombillón pico de rey de acero inox",
+            "precio": 11000,
+            "imagen": "./img/img-producto-id31/bombillonAcero-1.webp",
+            "fotosExtras": ["./img/img-producto-id31/bombillonAcero-2.webp", "./img/img-producto-id31/bombillonAcero-3.webp"],
+            "descripcion": "Bombillón de acero inoxidable pico de rey.",
+            "tipos": ["bombilla"],
+            "aptoParaGrabado": false,
+            "stock": true,
+            "colores": []
+        },
+        {
             "id": 15,
             "nombre": "Bombilla de acero inox chata",
             "precio": 6000,
@@ -270,18 +282,6 @@
             "colores": ["negro", "borravino", "azul", "crudo"]
         },
         {
-            "id": 21,
-            "nombre": "Canasta de ecocuero",
-            "precio": 9000,
-            "imagen": "./img/img-producto-id21/CanastaEcocuero.webp",
-            "fotosExtras": [],
-            "descripcion": "Canasta matera de ecocuero",
-            "tipos": ["accesorio"],
-            "aptoParaGrabado": false,
-            "stock": true,
-            "colores": ["negro"]
-        },
-        {
             "id": 22,
             "nombre": "Canasta de ecocuero reforzada",
             "precio": 17000,
@@ -316,6 +316,18 @@
             "aptoParaGrabado": false,
             "stock": true,
             "colores": ["gris", "blanco"]
+        },
+        {
+            "id": 33,
+            "nombre": "MatePas",
+            "precio": 12000,
+            "imagen": "./img/img-producto-id33/matepas-1.webp",
+            "fotosExtras": ["./img/img-producto-id33/matepas-2.webp", "./img/img-producto-id33/matepas-3.webp"],
+            "descripcion": "MatePas; Que el viento no sople la yerba.",
+            "tipos": ["accesorio"],
+            "aptoParaGrabado": false,
+            "stock": true,
+            "colores": []
         },
 
         {
