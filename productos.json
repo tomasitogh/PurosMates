@@ -8,7 +8,8 @@
         "algarrobo": "#a46e11",
         "azul": "#3232a5",
         "celeste": "#00ffff",
-        "amarillo": "#ffff00"
+        "amarillo": "#ffff00",
+        "gris": "#808080"
     },
     "productos": [
         {
@@ -47,7 +48,18 @@
             "stock": true,
             "colores": ["crudo"]
         },
-        
+        {
+            "id": 32,
+            "nombre": "Mate Mu",
+            "precio": 57000,
+            "imagen": "./img/img-producto-id32/matemu-1.webp",
+            "fotosExtras": ["./img/img-producto-id32/matemu-2.webp","./img/img-producto-id32/matemu-3.webp"],
+            "descripcion": "Mate de Algarrobo Premium – Estilo Ranchero con Cruz del Sur trabajado artesanalmente",
+            "tipos": ["mate"],
+            "aptoParaGrabado": false,
+            "stock": true,
+            "colores": ["algarrobo"]
+        },
         {
             "id": 4,
             "nombre": "Camionero de algarrobo virola de acero inox lisa",
@@ -69,7 +81,7 @@
             "descripcion": "Mate imperial de algarrobo con virola lisa y guarda de alpaca",
             "tipos": ["mate"],
             "aptoParaGrabado": true,
-            "stock": false,
+            "stock": true,
             "colores": ["algarrobo"]
         },
         {
@@ -101,12 +113,12 @@
             "nombre": "Imperial virola de alpaca lisa",
             "precio": 33000,
             "imagen": "./img/img-producto-id11/imperialLiso-3.webp",
-            "fotosExtras": ["./img/img-producto-id11/imperialLisoPersonalizado-2.webp","./img/img-producto-id11/imperialLisoPersonalizado-3.webp","./img/img-producto-id11/imperialLiso-2.webp","./img/img-producto-id11/imperialLiso-1.webp"],
+            "fotosExtras": ["./img/img-producto-id11/imperialLisoPersonalizado-2.webp","./img/img-producto-id11/imperialLisoPersonalizado-3.webp","./img/img-producto-id11/imperialLiso-2.webp","./img/img-producto-id11/imperialLiso-1.webp", "./img/img-producto-id11/imperialColorSuela-1.webp"],
             "descripcion": "Mate imperial de calabaza con exterior de cuero reforzado con virola de alpaca lisa",
             "tipos": ["mate"],
             "aptoParaGrabado": true,
             "stock": true,
-            "colores": ["negro", "borravino"]
+            "colores": ["negro", "borravino", "crudo"]
         },
         {
             "id": 7,
@@ -129,8 +141,8 @@
             "descripcion": "Mate torpedo de calabaza exterior de cuero reforzado con virola cincelada, base y bolitas de alpaca",
             "tipos": ["mate"],
             "aptoParaGrabado": false,
-            "stock": false,
-            "colores": ["negro"]
+            "stock": true,
+            "colores": ["borravino"]
         },
         {
             "id": 30,
@@ -181,6 +193,18 @@
             "colores": ["negro"]
         },
         {
+            "id": 14,
+            "nombre": "Bombilla pico de loro de acero inox",
+            "precio": 8000,
+            "imagen": "./img/img-producto-id14/bombillasAceroInox-1.webp",
+            "fotosExtras": ["./img/img-producto-id14/bombillasAceroInox-2.webp", "./img/img-producto-id14/bombillaPicoLoroAceroInox-3.webp"],
+            "descripcion": "Bombilla de acero inoxidable pico de loro. Tamaños mini (17cm) y larga (19cm).",
+            "tipos": ["bombilla"],
+            "aptoParaGrabado": false,
+            "stock": true,
+            "colores": []
+        },
+        {
             "id": 15,
             "nombre": "Bombilla de acero inox chata",
             "precio": 6000,
@@ -213,7 +237,7 @@
             "descripcion": "Bombillón de alpaca, consultar modelos disponibles",
             "tipos": ["bombilla"],
             "aptoParaGrabado": false,
-            "stock": false,
+            "stock": true,
             "colores": []
         },
         
@@ -286,13 +310,14 @@
             "nombre": "Luz de Mate",
             "precio": 6000,
             "imagen": "./img/img-producto-id29/luzDeMate-1.webp",
-            "fotosExtras": ["./img/img-producto-id29/luzDeMate-2.webp", "./img/img-producto-id29/luzDeMate-3.webp", "./img/img-producto-id29/luzDeMate-4.webp"],
+            "fotosExtras": ["./img/img-producto-id29/luzDeMate-2.webp", "./img/img-producto-id29/luzDeMate-3.webp","./img/img-producto-id29/luzDeMateBlanca-2.webp", "./img/img-producto-id29/luzDeMate-4.webp"],
             "descripcion": "Luz de Mate; pequeña linterna para iluminar el interior del mate en la oscuridad",
             "tipos": ["accesorio"],
             "aptoParaGrabado": false,
             "stock": true,
-            "colores": ["gris"]
+            "colores": ["gris", "blanco"]
         },
+
         {
             "id": 24,
             "nombre": "TapaMate de silicona",
@@ -310,7 +335,7 @@
             "nombre": "TapaBombi de silicona",
             "precio": 7500,
             "imagen": "./img/img-producto-id25/Tapabombi.webp",
-            "fotosExtras": ["./img/img-producto-id25/Tapabombi-2.webp"],
+            "fotosExtras": ["./img/img-producto-id25/Tapabombi-2.webp", "./img/img-producto-id25/Tapabombi-1.webp", "./img/img-producto-id25/Tapabombi-3.webp"],
             "descripcion": "Tapabombi de silicona, evita derrames y salpicaduras para guardar tu bombilla",
             "tipos": ["accesorio"],
             "aptoParaGrabado": false,
