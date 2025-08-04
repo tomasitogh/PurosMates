@@ -206,11 +206,11 @@
         },
         {
             "id": 35,
-            "nombre": "Bombilla de alpaca dos bochas",
+            "nombre": "Bombilla de alpaca 'dos bolitas'",
             "precio": 26000,
             "imagen": "./img/img-producto-id35/bombillaDosBochas-3.webp",
             "fotosExtras": ["./img/img-producto-id35/bombillaDosBochas.webp", "./img/img-producto-id35/bombillaDosBochas-1.webp"],
-            "descripcion": "Bombilla de alpaca dos bochas.",
+            "descripcion": "Bombilla de alpaca 'dos bolitas'.",
             "tipos": ["bombilla"],
             "aptoParaGrabado": false,
             "stock": true,
