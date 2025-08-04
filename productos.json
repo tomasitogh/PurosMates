@@ -205,6 +205,18 @@
             "colores": []
         },
         {
+            "id": 35,
+            "nombre": "Bombilla de alpaca dos bochas",
+            "precio": 26000,
+            "imagen": "./img/img-producto-id35/bombillaDosBochas-3.webp",
+            "fotosExtras": ["./img/img-producto-id35/bombillaDosBochas.webp", "./img/img-producto-id35/bombillaDosBochas-1.webp"],
+            "descripcion": "Bombilla de alpaca dos bochas.",
+            "tipos": ["bombilla"],
+            "aptoParaGrabado": false,
+            "stock": true,
+            "colores": []
+        },
+        {
             "id": 31,
             "nombre": "Bombillón pico de rey de acero inox",
             "precio": 11000,
@@ -235,6 +247,18 @@
             "imagen": "./img/img-producto-id16/bombillaAlpaca-1.webp",
             "fotosExtras": ["./img/img-producto-id16/bombillaAlpaca-2.webp", "./img/img-producto-id16/bombillaAlpaca-3.webp"],
             "descripcion": "Bombilla de alpaca pico de loro lisa",
+            "tipos": ["bombilla"],
+            "aptoParaGrabado": false,
+            "stock": true,
+            "colores": []
+        },
+        {
+            "id": 34,
+            "nombre": "Bombillón de alpaca con dije de bronce",
+            "precio": 28000,
+            "imagen": "./img/img-producto-id34/bombilloneFleje-2.webp",
+            "fotosExtras": ["./img/img-producto-id34/bombillonFleje.webp", "./img/img-producto-id34/bombilloneFleje.webp", "./img/img-producto-id34/bombilloneFleje-1.webp"],
+            "descripcion": "Bombillón de alpaca con dije de bronce",
             "tipos": ["bombilla"],
             "aptoParaGrabado": false,
             "stock": true,
