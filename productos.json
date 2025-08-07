@@ -313,9 +313,21 @@
             "fotosExtras": [],
             "descripcion": "Canasta matera de ecocuero reforzada con divisor interno",
             "tipos": ["accesorio"],
-            "aptoParaGrabado": false,
+            "aptoParaGrabado": true,
             "stock": true,
-            "colores": ["negro"]
+            "colores": ["negro", "borravino", "chocolate"]
+        },
+        {
+            "id": 36,
+            "nombre": "Portamatero clásico de cuero 100%",
+            "precio": 50000,
+            "imagen": "./img/img-producto-id36/1-portamatero_clasico.webp",
+            "fotosExtras": ["./img/img-producto-id36/2-portamatero_clasico.webp", "./img/img-producto-id36/3-portamatero_clasico.webp", "./img/img-producto-id36/4-portamatero_clasico.webp", "./img/img-producto-id36/5-portamatero_clasico.webp"],
+            "descripcion": "Portamatero clásico de cuero reforzado con tapa y divisor interno",
+            "tipos": ["accesorio"],
+            "aptoParaGrabado": true,
+            "stock": true,
+            "colores": ["marron"]
         },
         {
             "id": 23,
@@ -327,7 +339,7 @@
             "tipos": ["accesorio"],
             "aptoParaGrabado": false,
             "stock": true,
-            "colores": ["negro", "borravino"]
+            "colores": ["negro", "borravino", "marron"]
         },
         {
             "id": 29,
