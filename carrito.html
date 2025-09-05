@@ -165,7 +165,7 @@
             <div id="grabado-opciones" style="display: none;">
                 <!-- Las opciones de grabado se cargarán dinámicamente -->
             </div>
-            <h3>Total (estimado): $<span id="total-precio">0</span></h3>
+            <h3>Precio estimado: $<span id="total-precio">0</span></h3>
         </div>
 
         <button class="btn-whatsapp" onclick="enviarPedidoWhatsApp()">
@@ -301,7 +301,7 @@
                         grabadoOpcion.innerHTML = `
                             <label>
                                 <input type="checkbox" id="grabado-${index}" onchange="actualizarTotal()">
-                                Agregar grabado láser en ${item.nombre} (+$13.000)
+                                Agregar grabado láser en ${item.nombre} (+$20.000)
                             </label>
                         `;
                         grabadoOpciones.appendChild(grabadoOpcion);
@@ -325,7 +325,7 @@
                 if (item.aptoParaGrabado === true) {
                     const checkbox = document.getElementById(`grabado-${index}`);
                     if (checkbox && checkbox.checked) {
-                        total += 13000;
+                        total += 20000;
                     }
                 }
             });
@@ -350,7 +350,7 @@
                 if (item.aptoParaGrabado === true) {
                     const checkbox = document.getElementById(`grabado-${index}`);
                     if (checkbox && checkbox.checked) {
-                        mensaje += `  * Con grabado láser (+$13.000)\n`;
+                        mensaje += `  * Con grabado láser (+$20.000)\n`;
                     }
                 }
             });

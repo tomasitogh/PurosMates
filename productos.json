@@ -315,7 +315,7 @@
             "tipos": ["accesorio"],
             "aptoParaGrabado": true,
             "stock": true,
-            "colores": ["negro", "borravino", "chocolate"]
+            "colores": ["negro"]
         },
         {
             "id": 36,
@@ -326,7 +326,7 @@
             "descripcion": "Portamatero clásico de cuero reforzado con tapa y divisor interno",
             "tipos": ["accesorio"],
             "aptoParaGrabado": true,
-            "stock": true,
+            "stock": false,
             "colores": ["marron"]
         },
         {
@@ -351,7 +351,7 @@
             "tipos": ["accesorio"],
             "aptoParaGrabado": false,
             "stock": true,
-            "colores": ["gris", "blanco"]
+            "colores": ["blanco"]
         },
         {
             "id": 33,
