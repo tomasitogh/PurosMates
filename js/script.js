@@ -62,7 +62,7 @@ let coloresGlobales = {};
 // Función para cargar los productos desde el archivo JSON
 async function cargarProductos() {
     try {
-        const response = await fetch('./productos.json');
+        const response = await fetch('../productos.json');
         const data = await response.json();
         coloresGlobales = data.colores || {};
         productos = data.productos;
@@ -540,7 +540,7 @@ function cargarCarrito() {
     if (carrito.length === 0) {
         contenedor.innerHTML = `
             <p>Tu carrito está vacío</p>
-            <a href="./catalogo.html" class="btn-comprar">Comprar Ahora</a>
+            <a href="../catalogo.html" class="btn-comprar">Comprar Ahora</a>
         `;
         grabadoOpciones.style.display = 'none';
         grabadoMensaje.innerHTML = '';
