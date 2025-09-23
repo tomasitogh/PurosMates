@@ -524,7 +524,7 @@ let productosData = [];
 let descuento = 0; // Variable global para el descuento
 
 // Cargar productos.json al iniciar
-fetch('./productos.json')
+fetch('../productos.json')
     .then(res => res.json())
     .then(data => { productosData = data.productos; });
 
