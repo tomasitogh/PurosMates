@@ -23,6 +23,7 @@
 
   gtag('config', 'AW-16987721324');
 </script>
+<script src="js/script.js"></script>
 <body>
     <header class="main-header">
         <nav class="navbar">
@@ -139,58 +140,6 @@
         </div>
     </footer>
 
-    <script>
-        function enviarEmail(e) {
-            e.preventDefault();
-
-            const nombre = document.getElementById('nombre').value;
-            const email = document.getElementById('email').value;
-            const mensaje = document.getElementById('mensaje').value;
-
-            const templateParams = {
-                to_email: 'tomasgonzalezhu.phreys12@gmail.com',
-                from_name: nombre,
-                from_email: email,
-                message: mensaje
-            };
-
-            emailjs.send('service_uzlujse', 'template_9ck2bem', templateParams)
-                .then(function(response) {
-                    alert('¡Mensaje enviado con éxito!');
-                    document.getElementById('contacto-form').reset();
-                }, function(error) {
-                    alert('Error al enviar el mensaje. Por favor, intente nuevamente.');
-                    console.error('Error:', error);
-                });
-
-            return false;
-        }
-
-        // Control del menú móvil
-        const burgerButton = document.querySelector('.main-header-burguer');
-        const mobileMenu = document.querySelector('.mobile-menu');
-
-        burgerButton.addEventListener('click', () => {
-            burgerButton.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        });
-
-        // Cerrar menú al hacer clic en un enlace
-        const mobileLinks = document.querySelectorAll('.mobile-menu a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                burgerButton.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        // Cerrar menú al hacer clic fuera
-        document.addEventListener('click', (e) => {
-            if (!burgerButton.contains(e.target) && !mobileMenu.contains(e.target)) {
-                burgerButton.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            }
-        });
-    </script>
+    
 </body>
 </html>

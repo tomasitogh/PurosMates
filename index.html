@@ -26,6 +26,7 @@
 
   gtag('config', 'AW-16987721324');
 </script>
+<script src="js/script.js"></script>
 <body>
     <header class="main-header">
         <nav class="navbar">
@@ -153,33 +154,5 @@
             <div class="footer-text">Copyright © Puros Mates 2024</div>
         </div>
     </footer>
-
-    <script>
-        // Control del menú móvil
-        const burgerButton = document.querySelector('.main-header-burguer');
-        const mobileMenu = document.querySelector('.mobile-menu');
-
-        burgerButton.addEventListener('click', () => {
-            burgerButton.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        });
-
-        // Cerrar menú al hacer clic en un enlace
-        const mobileLinks = document.querySelectorAll('.mobile-menu a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                burgerButton.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        // Cerrar menú al hacer clic fuera
-        document.addEventListener('click', (e) => {
-            if (!burgerButton.contains(e.target) && !mobileMenu.contains(e.target)) {
-                burgerButton.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            }
-        });
-    </script>
 </body>
 </html>
