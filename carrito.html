@@ -5,108 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="El carrito de compras de Puros Mates.">
     <link rel="icon" href="./img/favicon.ico" type="image/png">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Carrito - Puros Mates</title>
-    <style>
-        .carrito-item, .descuento-item {
-            max-width: 700px;
-            width: 100%;
-            margin: 0 auto 20px auto;
-            box-sizing: border-box;
-        }
-        .carrito-item img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .carrito-item img:hover {
-            box-shadow: 0 0 0 4px #2d5d52, 0 0 15px rgba(45, 93, 82, 0.3);
-            transform: scale(1.02);
-        }
-        .modal-imagen-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-        }
-        .modal-imagen {
-            width: 500px;
-            max-width: 90vw;
-            height: 500px;
-            max-height: 90vh;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-            background: #fff;
-            padding: 10px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .modal-imagen img {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            display: block;
-            margin: 0 auto;
-            border-radius: 8px;
-            box-shadow: none;
-        }
-        .modal-imagen-cerrar {
-            position: absolute;
-            top: 10px;
-            right: 16px;
-            font-size: 2rem;
-            color: #2d5d52;
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 2;
-        }
-        .modal-imagen-flecha {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 48px;
-            height: 48px;
-            background: rgba(45,93,82,0.15);
-            border-radius: 50%;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 3;
-            transition: background 0.2s;
-        }
-        .modal-imagen-flecha:hover {
-            background: rgba(45,93,82,0.35);
-        }
-        .modal-imagen-flecha svg {
-            width: 28px;
-            height: 28px;
-            fill: #2d5d52;
-        }
-        .modal-imagen-flecha.izq { left: 10px; }
-        .modal-imagen-flecha.der { right: 10px; }
-        @media (max-width: 600px) {
-            .carrito-item, .descuento-item {
-                max-width: 90vw;
-                width: 90vw;
-                border-radius: 0;
-                margin-left: 0;
-                margin-right: 0;
-            }
-        }
-    </style>
+    
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16987721324"></script>
@@ -266,7 +167,7 @@
                         <h3>${item.nombre}</h3>
                         <p>$${item.precio}</p>
                     </div>
-                    <button class="btn-eliminar" onclick="eliminarDelCarrito(${index})">Eliminar</button>
+                    <button class="btn-eliminar-cart" onclick="eliminarDelCarrito(${index})">Eliminar</button>
                 `;
                 contenedor.appendChild(itemElement);
             });
