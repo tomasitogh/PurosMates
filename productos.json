@@ -401,6 +401,30 @@
             "aptoParaGrabado": false,
             "stock": false,
             "colores": ["negro", "borravino"]
+        },
+        {
+            "id": 37,
+            "nombre": "Sartén de hierro fundido",
+            "precio": 68000,
+            "imagen": "./img/img-producto-id37/Olla1.webp",
+            "fotosExtras": ["./img/img-producto-id37/Olla.webp", "./img/img-producto-id37/Olla2.webp"],
+            "descripcion": "Sartén doble de hierro fundido - Horno Holandés (Cacerola + Sartén) - Capacidad: 2lts, Diámetro: 25cm. Producto robusto y altamente durable, ideal para pan de masa mdre, guisos, cabutias rellenas.",
+            "tipos": ["accesorio"],
+            "aptoParaGrabado": false,
+            "stock": true,
+            "colores": ["gris"]
+        },
+        {
+            "id": 38,
+            "nombre": "Provoletera de hierro fundido",
+            "precio": 15000,
+            "imagen": "./img/img-producto-id38/Provoletera1.webp",
+            "fotosExtras": ["./img/img-producto-id38/ProvoleteraEnParrilla1.webp", "./img/img-producto-id38/ProvoleteraEnMano4.webp"],
+            "descripcion": "Provoletera de hierro de fundición. Apta para fuego directo, brasas, parrilla y horno. diámetro de 14cm con mango.",
+            "tipos": ["accesorio"],
+            "aptoParaGrabado": false,
+            "stock": true,
+            "colores": ["gris"]
         }
     ]
 } 
