@@ -604,7 +604,7 @@ function cargarCarrito() {
                 grabadoOpcion.innerHTML = `
                     <label>
                         <input type="checkbox" id="grabado-${index}" onchange="actualizarTotal()">
-                        Agregar grabado láser en ${item.nombre} (+$20.000)
+                        Agregar grabado láser en ${item.nombre} (entre $20.000 y $25.000)
                     </label>
                 `;
                 grabadoOpciones.appendChild(grabadoOpcion);

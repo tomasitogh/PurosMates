@@ -87,7 +87,7 @@
         {
             "id": 6,
             "nombre": "Torpedo virola de acero inox lisa",
-            "precio": 26000,
+            "precio": 31000,
             "imagen": "./img/img-producto-id6/torpedoAceroLiso-4.webp",
             "fotosExtras": ["./img/img-producto-id6/torpedoAceroLiso-3.webp", "./img/img-producto-id6/torpedoAceroLiso-2.webp","./img/img-producto-id6/torpedoAceroLiso-1.webp"],
             "descripcion": "Mate torpedo de calabaza exterior de cuero reforzado con virola de acero inoxidable lisa",
@@ -99,7 +99,7 @@
         {
             "id": 10,
             "nombre": "Camionero virola de acero inox lisa",
-            "precio": 26000,
+            "precio": 29000,
             "imagen": "./img/img-producto-id10/camioneroLiso-2.webp",
             "fotosExtras": ["./img/img-producto-id10/matepas-1_camionerosLisos-2.webp", "./img/img-producto-id10/camioneroPersonalizado-1.webp"],
             "descripcion": "Mate camionero de calabaza con exterior de cuero reforzado y virola de acero inoxidable",
@@ -111,7 +111,7 @@
         {
             "id": 11,
             "nombre": "Imperial virola de alpaca lisa",
-            "precio": 33000,
+            "precio": 36000,
             "imagen": "./img/img-producto-id11/imperialLiso-3.webp",
             "fotosExtras": ["./img/img-producto-id11/imperialLisoPersonalizado-2.webp","./img/img-producto-id11/imperialLisoPersonalizado-3.webp","./img/img-producto-id11/imperialLiso-2.webp","./img/img-producto-id11/imperialLiso-1.webp", "./img/img-producto-id11/imperialColorSuela-1.webp"],
             "descripcion": "Mate imperial de calabaza con exterior de cuero reforzado con virola de alpaca lisa",
@@ -123,7 +123,7 @@
         {
             "id": 7,
             "nombre": "Torpedo virola cincelada de alpaca",
-            "precio": 34000,
+            "precio": 36000,
             "imagen": "./img/img-producto-id7/TorpedoAlpacaCincelado-1.webp",
             "fotosExtras": ["./img/img-producto-id7/torpedoAlpacaCincelado-2.webp"],
             "descripcion": "Mate torpedo de calabaza exterior de cuero reforzado con virola de alpaca cincelada",
