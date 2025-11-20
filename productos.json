@@ -177,7 +177,7 @@
             "descripcion": "Mate imperial con interior de acero inoxidable y exterior de cuero reforzado con virola lisa",
             "tipos": ["mate"],
             "aptoParaGrabado": true,
-            "stock": false,
+            "stock": true,
             "colores": ["negro"]
         },
         {
